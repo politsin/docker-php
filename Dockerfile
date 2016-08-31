@@ -14,7 +14,7 @@ RUN apt-get update && \
     add-apt-repository ppa:nginx/$nginx && \
     apt-get update && \
     apt-get upgrade -y && \
-    BUILD_PACKAGES="php7.0 php7.0-fpm php7.0-curl php7.0-imap php7.0-mbstring php7.0-mcrypt php7.0-xmlrpc php7.0-cgi php7.0-mysql php7.0-gd  php7.0-zip php7.0-soap php7.0-dev php-pear php-memcached supervisor mysql-client git composer openssh-server htop curl nano mc zip libxrender1" && \
+    BUILD_PACKAGES="php7.0 php7.0-fpm php7.0-curl php7.0-imap php7.0-mbstring php7.0-mcrypt php7.0-xmlrpc php7.0-cgi php7.0-mysql php7.0-gd  php7.0-zip php7.0-soap php7.0-dev php7.0-bcmath php-pear php-memcached supervisor mysql-client git composer openssh-server htop curl nano mc zip libxrender1" && \
     apt-get -y install $BUILD_PACKAGES && \
     apt-get remove --purge -y software-properties-common && \
     apt-get autoremove -y && \
