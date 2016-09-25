@@ -68,14 +68,13 @@ RUN wget https://github.com/Jan-E/uploadprogress/archive/master.zip && \
 RUN mkdir /opt/go && export GOPATH=/opt/go && go get github.com/mailhog/mhsendmail
 
 #DRUSH:::
-RUN wget http://files.drush.org/drush.phar \
-    && php drush.phar core-status \
-    && chmod +x drush.phar \
-    && mv drush.phar /usr/local/bin/drush \
-    && drush -y init
+RUN wget https://s3.amazonaws.com/files.drush.org/drush.phar -q -O drush \
+    && php drush core-status \
+    && chmod +x drush \
+    && mv drush /usr/local/bin/drush
 
 #Dupal-console:::
-RUN curl https://drupalconsole.com/installer -L -o drupal.phar \
+RUN wget https://drupalconsole.com/installer -q -O drupal.phar \
     && mv drupal.phar /usr/local/bin/drupal \
     && chmod +x /usr/local/bin/drupal \
     && drupal init --override
