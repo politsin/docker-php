@@ -2,5 +2,5 @@
 
 git clone https://github.com/politsin/image-docker-php /opt/image-docker-php/
 
-/opt/image-docker-php/run.pl
+/opt/image-docker-php/build.pl
 
