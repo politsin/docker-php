@@ -23,10 +23,6 @@ mkdir -p /var/run/mysqld
 chmod -R 0755 /var/run/mysqld
 chown -R mysql:root /var/run/mysqld
 
-
-# Again set the right permissions (needed when mounting from a volume)
-chown -Rf www-data.www-data /usr/share/nginx/html/
-
 # Start supervisord and services
 /usr/bin/supervisord -n -c /etc/supervisord.conf
 
