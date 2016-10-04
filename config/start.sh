@@ -26,11 +26,13 @@ chown -Rf www-data.www-data /var/www/.drush
 chown -Rf www-data.www-data /var/www/.console
 
 # php-fpm socket
-mkdir -p /run/php/
-chmod -R 0755 /run/php/
+mkdir -p /var/run/php/
+chmod -R 0755 /var/run/php/
 chown -R www-data.www-data /var/run/php
 # mysql socket
+mkdir -p /var/run/mysqld
 chmod -R 0777 /var/run/mysqld
+chown -R mysql:root /var/run/mysqld
 
 # Start supervisord and services
 /usr/bin/supervisord -n -c /etc/supervisord.conf
