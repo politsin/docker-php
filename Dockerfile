@@ -60,9 +60,6 @@ RUN wget https://github.com/Jan-E/uploadprogress/archive/master.zip && \
     ln -s /etc/php/7.0/mods-available/uploadprogress.ini /etc/php/7.0/fpm/conf.d/20-uploadprogress.ini && \
     cd .. && rm -rf ./master.zip ./uploadprogress-master
 
-#SendMail:::
-RUN mkdir /opt/go && export GOPATH=/opt/go && go get github.com/mailhog/mhsendmail
-
 #DRUSH:::
 RUN wget https://s3.amazonaws.com/files.drush.org/drush.phar -q -O drush \
     && php drush core-status \
@@ -74,6 +71,9 @@ RUN wget https://drupalconsole.com/installer -q -O drupal.phar \
     && mv drupal.phar /usr/local/bin/drupal \
     && chmod +x /usr/local/bin/drupal \
     && drupal init --override
+
+#SendMail:::
+RUN mkdir /opt/go && export GOPATH=/opt/go && go get github.com/mailhog/mhsendmail
 
 # tweak php-fpm config
 RUN sed -i -e "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g" /etc/php/7.0/fpm/php.ini && \
