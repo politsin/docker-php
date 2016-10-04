@@ -10,8 +10,6 @@ ENV DEBIAN_FRONTEND noninteractive
 #APT-GET:::
 RUN apt-get update && \
     apt-get install -y software-properties-common apt-utils && \
-    apt-get update && \
-    apt-get upgrade -y && \
     apt-get -y install php7.0 \
                        php7.0-fpm \
                        php7.0-curl \
