@@ -10,8 +10,6 @@ ENV DEBIAN_FRONTEND noninteractive
 #APT-GET:::
 RUN apt-get update && \
     apt-get install -y software-properties-common apt-utils && \
-    nginx=stable && \
-    add-apt-repository ppa:nginx/$nginx && \
     apt-get update && \
     apt-get upgrade -y && \
     apt-get -y install php7.0 \
