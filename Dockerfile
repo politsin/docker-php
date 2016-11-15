@@ -38,6 +38,8 @@ RUN apt-get update && \
                        nano \
                        unzip \
                        composer \
+                       inetutils-ping \
+                       ssmtp \
                        libxrender1 \
                        golang-go && \
     apt-get remove --purge -y software-properties-common && \
