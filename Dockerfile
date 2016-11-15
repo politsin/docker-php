@@ -40,8 +40,7 @@ RUN apt-get update && \
                        composer \
                        inetutils-ping \
                        ssmtp \
-                       libxrender1 \
-                       golang-go && \
+                       libxrender1 && \
     apt-get remove --purge -y software-properties-common && \
     apt-get autoremove -y && \
     apt-get clean && \
@@ -73,9 +72,6 @@ RUN wget https://drupalconsole.com/installer -q -O drupal.phar \
     && mv drupal.phar /usr/local/bin/drupal \
     && chmod +x /usr/local/bin/drupal \
     && drupal init --override
-
-#SendMail:::
-RUN mkdir /opt/go && export GOPATH=/opt/go && go get github.com/mailhog/mhsendmail
 
 # tweak php-fpm config
 RUN sed -i -e "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g" /etc/php/7.0/fpm/php.ini && \
