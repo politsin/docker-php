@@ -40,6 +40,8 @@ RUN apt-get update && \
                        composer \
                        inetutils-ping \
                        ssmtp \
+                       putty \
+                       cron \
                        libxrender1 && \
     apt-get remove --purge -y software-properties-common && \
     apt-get autoremove -y && \
