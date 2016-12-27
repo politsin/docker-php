@@ -39,6 +39,7 @@ RUN apt-get update && \
                        unzip \
                        composer \
                        inetutils-ping \
+                       net-tools \
                        ssmtp \
                        putty \
                        cron \
