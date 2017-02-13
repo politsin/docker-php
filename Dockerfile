@@ -11,22 +11,22 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
     apt-get install -y software-properties-common apt-utils && \
     apt-get install -y php7.0 \
+                       php7.0-gd  \
                        php7.0-fpm \
+                       php7.0-dev \
+                       php7.0-zip \
+                       php7.0-cgi \
+                       php7.0-soap \
                        php7.0-curl \
                        php7.0-imap \
-                       php7.0-mbstring \
-                       php7.0-mcrypt \
-                       php7.0-xmlrpc \
-                       php7.0-cgi \
                        php7.0-mysql \
-                       php7.0-gd  \
-                       php7.0-zip \
-                       php7.0-soap \
-                       php7.0-dev \
+                       php7.0-xmlrpc \
+                       php7.0-mcrypt \
                        php7.0-bcmath \
+                       php7.0-mbstring \
                        php-pear \
-                       php-memcached \
                        php-redis \
+                       php-memcached \
                        supervisor \
                        mysql-client \
                        openssh-server \
@@ -36,14 +36,15 @@ RUN apt-get update && \
                        htop \
                        curl \
                        nano \
+                       cron \
+                       scss \
                        unzip \
-                       composer \
-                       inetutils-ping \
-                       net-tools \
                        ssmtp \
                        putty \
-                       cron \
-                       libxrender1 && \
+                       composer \
+                       net-tools \
+                       libxrender1 \
+                       inetutils-ping && \
     apt-get remove --purge -y software-properties-common && \
     apt-get autoremove -y && \
     apt-get clean && \
