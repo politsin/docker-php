@@ -37,7 +37,7 @@ RUN apt-get update && \
                        curl \
                        nano \
                        cron \
-                       scss \
+                       sass \
                        unzip \
                        ssmtp \
                        putty \
