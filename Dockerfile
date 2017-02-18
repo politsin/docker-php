@@ -26,6 +26,7 @@ RUN apt-get update && \
                        php7.0-mbstring \
                        php-pear \
                        php-redis \
+                       php-sqlite3 \
                        php-memcached \
                        supervisor \
                        mysql-client \
