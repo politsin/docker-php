@@ -42,6 +42,7 @@ RUN apt-get update && \
                        unzip \
                        ssmtp \
                        putty \
+                       sshpass \
                        composer \
                        net-tools \
                        libxrender1 \
