@@ -12,17 +12,21 @@ RUN apt-get update && \
     apt-get install -y software-properties-common apt-utils && \
     apt-get install -y php7.0 \
                        php7.0-gd  \
-                       php7.0-fpm \
+                       php7.0-bz2 \
+					   php7.0-fpm \
                        php7.0-dev \
                        php7.0-zip \
                        php7.0-cgi \
                        php7.0-soap \
                        php7.0-curl \
-                       php7.0-imap \
+                       php7.0-json \
+					   php7.0-imap \
                        php7.0-mysql \
-                       php7.0-xmlrpc \
+					   php7.0-pgsql \
+					   php7.0-xmlrpc \
                        php7.0-mcrypt \
                        php7.0-bcmath \
+					   php7.0-opcache \
                        php7.0-mbstring \
                        php-pear \
                        php-redis \
@@ -31,6 +35,7 @@ RUN apt-get update && \
                        supervisor \
                        mysql-client \
                        openssh-server \
+					   postgresql-client \
                        mc \
                        git \
                        zip \
@@ -76,8 +81,7 @@ RUN wget https://s3.amazonaws.com/files.drush.org/drush.phar -q -O drush \
 #Dupal-console:::
 RUN wget https://drupalconsole.com/installer -q -O drupal.phar \
     && mv drupal.phar /usr/local/bin/drupal \
-    && chmod +x /usr/local/bin/drupal \
-    && drupal init --override
+    && chmod +x /usr/local/bin/drupal
 
 # tweak php-fpm config
 RUN sed -i -e "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g" /etc/php/7.0/fpm/php.ini && \
