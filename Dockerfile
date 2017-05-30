@@ -83,6 +83,15 @@ RUN wget https://drupalconsole.com/installer -q -O drupal.phar \
     && mv drupal.phar /usr/local/bin/drupal \
     && chmod +x /usr/local/bin/drupal
 
+#Gulp:::
+RUN apt-get update && \
+    apt-get install -y npm nodejs-legacy && \
+    apt-get autoremove -y && \
+    apt-get clean && \
+    apt-get autoclean && \
+    npm install gulp-cli -g && \
+	npm install gulp -D
+
 # tweak php-fpm config
 RUN sed -i -e "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g" /etc/php/7.0/fpm/php.ini && \
     sed -i -e "s/upload_max_filesize\s*=\s*2M/upload_max_filesize = 100M/g" /etc/php/7.0/fpm/php.ini && \
