@@ -89,7 +89,12 @@ RUN apt-get update && \
     apt-get autoremove -y && \
     apt-get clean && \
     apt-get autoclean && \
-    npm install -g gulp gulp-cli gulp-sass gulp-watch gulp-sourcemaps gulp-plumber
+    npm install -g gulp && \
+	npm install gulp-cli && \
+	npm install gulp-sass && \
+	npm install gulp-watch && \
+	npm install gulp-plumber && \
+	npm install gulp-sourcemaps 
 
 # tweak php-fpm config
 RUN sed -i -e "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g" /etc/php/7.0/fpm/php.ini && \
