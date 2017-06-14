@@ -45,6 +45,7 @@ RUN apt-get update && \
                        nano \
                        cron \
                        sass \
+                       sudo \
                        unzip \
                        ssmtp \
                        putty \
