@@ -32,6 +32,7 @@ RUN apt-get update && \
                        php-redis \
                        php-sqlite3 \
                        php-memcached \
+                       php-codesniffer \
                        supervisor \
                        mysql-client \
                        openssh-server \
@@ -62,6 +63,13 @@ RUN apt-get update && \
     rm -rf /usr/share/man/?? && \
     rm -rf /usr/share/man/??_*
 
+#PhpCS:::
+RUN cd ~ && \
+  git clone https://git.drupal.org/project/coder.git && \
+  mv /root/coder/coder_sniffer/DrupalPractice /usr/share/php/PHP/CodeSniffer/Standards/DrupalPractice && \
+  mv /root/coder/coder_sniffer/Drupal /usr/share/php/PHP/CodeSniffer/Standards/Drupal && \
+  rm -rf /root/coder
+
 #Uploadprogress:::
 RUN wget https://github.com/Jan-E/uploadprogress/archive/master.zip && \
     unzip master.zip && \
@@ -83,6 +91,11 @@ RUN wget https://drupalconsole.com/installer -q -O drupal.phar \
     && mv drupal.phar /usr/local/bin/drupal \
     && chmod +x /usr/local/bin/drupal
 
+#Composer:::
+RUN wget https://getcomposer.org/composer.phar -q -O composer.phar \
+    && mv composer.phar /usr/bin/composer \
+    && chmod +x /usr/bin/composer 	
+	
 #NodeJS:::
 RUN apt-get update && \
     apt-get install -y npm nodejs-legacy && \
@@ -98,26 +111,23 @@ RUN npm install gulpjs/gulp-cli -g && \
 RUN npm install gulp-sass && \
     npm install gulp-watch && \
     npm install gulp-plumber
-    
+	
+#COPY script & config:::
+COPY config/php/www.conf /etc/php/7.0/fpm/pool.d/www.conf
+COPY config/php/php.ini /etc/php/7.0/fpm/php.ini",
+COPY config/php/opcache.ini etc/php/7.0/mods-available/opcache.ini
+COPY config/ssmtp/ssmtp.conf /etc/ssmtp/ssmtp.conf
+COPY config/cron/www-data /var/spool/cron/crontabs/www-data
+COPY config/supervisor/supervisord.conf /etc/supervisord.conf
+COPY config/start.sh /start.sh
 
-# tweak php-fpm config
-RUN sed -i -e "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g" /etc/php/7.0/fpm/php.ini && \
-    sed -i -e "s/upload_max_filesize\s*=\s*2M/upload_max_filesize = 100M/g" /etc/php/7.0/fpm/php.ini && \
-    sed -i -e "s/post_max_size\s*=\s*8M/post_max_size = 100M/g" /etc/php/7.0/fpm/php.ini
-
-# ADD
-ADD config/php/www.conf /etc/php/7.0/fpm/pool.d/www.conf
-ADD config/supervisor/supervisord.conf /etc/supervisord.conf
-ADD config/start.sh /start.sh
-
-# fix ownership of sock file for php-fpm
-RUN mkdir /run/php && \
-    chown www-data.www-data /run/php && \
-    sed -i -e "s/;listen.mode = 0660/listen.mode = 0750/g" /etc/php/7.0/fpm/pool.d/www.conf && \
-    find /etc/php/7.0/cli/conf.d/ -name "*.ini" -exec sed -i -re 's/^(\s*)#(.*)/\1;\2/g' {} \;
-
-# Add run dir for ssh default config
-RUN chmod 755 /start.sh
+#Fix ownership
+RUN chmod 755 /start.sh && \
+    mkdir /run/php && \
+    chown -R www-data.www-data /run/php && \
+    chown www-data.www-data /var/spool/cron/crontabs/www-data && \
+    chmod 0777 /var/spool/cron/crontabs && \
+    chmod 0600 /var/spool/cron/crontabs/www-data
 
 # Expose Ports
 EXPOSE 22
