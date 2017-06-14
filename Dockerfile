@@ -114,7 +114,7 @@ RUN npm install gulp-sass && \
 	
 #COPY script & config:::
 COPY config/php/www.conf /etc/php/7.0/fpm/pool.d/www.conf
-COPY config/php/php.ini /etc/php/7.0/fpm/php.ini",
+COPY config/php/php.ini /etc/php/7.0/fpm/php.ini"
 COPY config/php/opcache.ini etc/php/7.0/mods-available/opcache.ini
 COPY config/ssmtp/ssmtp.conf /etc/ssmtp/ssmtp.conf
 COPY config/cron/www-data /var/spool/cron/crontabs/www-data
