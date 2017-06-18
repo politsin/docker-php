@@ -33,6 +33,7 @@ RUN apt-get update && \
                        php-sqlite3 \
                        php-memcached \
                        php-codesniffer \
+                       python-pip \
                        supervisor \
                        mysql-client \
                        openssh-server \
@@ -95,8 +96,11 @@ RUN wget https://drupalconsole.com/installer -q -O drupal.phar \
 #Composer:::
 RUN wget https://getcomposer.org/composer.phar -q -O composer.phar \
     && mv composer.phar /usr/bin/composer \
-    && chmod +x /usr/bin/composer 	
-	
+    && chmod +x /usr/bin/composer
+
+#AWS:::
+RUN pip install awscli
+
 #NodeJS:::
 RUN apt-get update && \
     apt-get install -y npm nodejs-legacy && \
@@ -112,7 +116,7 @@ RUN npm install gulpjs/gulp-cli -g && \
 RUN npm install gulp-sass && \
     npm install gulp-watch && \
     npm install gulp-plumber
-	
+
 #COPY script & config:::
 COPY config/php/www.conf /etc/php/7.0/fpm/pool.d/www.conf
 COPY config/php/php.ini /etc/php/7.0/fpm/php.ini
