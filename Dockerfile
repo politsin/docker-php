@@ -33,7 +33,6 @@ RUN apt-get update && \
                        php-sqlite3 \
                        php-memcached \
                        php-codesniffer \
-                       python-pip \
                        supervisor \
                        mysql-client \
                        openssh-server \
@@ -97,9 +96,6 @@ RUN wget https://drupalconsole.com/installer -q -O drupal.phar \
 RUN wget https://getcomposer.org/composer.phar -q -O composer.phar \
     && mv composer.phar /usr/bin/composer \
     && chmod +x /usr/bin/composer
-
-#AWS:::
-RUN pip install awscli
 
 #NodeJS:::
 RUN apt-get update && \
