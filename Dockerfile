@@ -112,6 +112,7 @@ RUN npm install gulpjs/gulp-cli -g && \
 #GulpPacs:::
 RUN npm install gulp-sass && \
     npm install gulp-watch && \
+    npm install gulp-touch && \
     npm install gulp-plumber
 
 #COPY script & config:::
