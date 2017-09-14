@@ -32,6 +32,7 @@ RUN apt-get update && \
                        php-ssh2 \
                        php-redis \
                        php-sqlite3 \
+                       php-imagick \
                        php-memcached \
                        php-codesniffer \
                        supervisor \
@@ -53,6 +54,7 @@ RUN apt-get update && \
                        sshpass \
                        composer \
                        net-tools \
+                       imagemagick \
                        libxrender1 \
                        inetutils-ping && \
     apt-get remove --purge -y software-properties-common && \
