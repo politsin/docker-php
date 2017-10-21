@@ -42,15 +42,16 @@ RUN apt-get update && \
                        mc \
                        git \
                        zip \
-                       htop \
-                       curl \
-                       nano \
                        cron \
+                       curl \
+                       htop \
+                       nano \
                        sass \
                        sudo \
-                       unzip \
-                       ssmtp \
+                       nohup \
                        putty \
+                       ssmtp \
+                       unzip \
                        sshpass \
                        composer \
                        net-tools \
@@ -116,6 +117,7 @@ RUN npm install gulpjs/gulp-cli -g && \
 RUN npm install gulp-sass && \
     npm install gulp-watch && \
     npm install gulp-touch && \
+    npm install gulp-touch-cmd && \
     npm install gulp-plumber
 
 #COPY script & config:::
