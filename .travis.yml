@@ -7,17 +7,11 @@ services:
 
 env:
   global:
-    - VERSION=1.8
+    - REPO=synst/php7
 
 script:
   - python build.py
 
 after_success:
-  - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-  - export REPO=synst/php7
-  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
-  - docker build -f Dockerfile -t $REPO .
-  - docker tag $REPO $REPO:$TAG
-  - docker tag $REPO $REPO:$VERSION
-  - docker tag $REPO $REPO:$VERSION.$TRAVIS_BUILD_NUMBER
+  - docker login -u $DOCKER_USER -p $DOCKER_PASS
   - docker push $REPO

@@ -1,6 +1,7 @@
 # docker-php
 
-git clone https://github.com/politsin/image-docker-php /opt/image-docker-php/
+```
+git clone https://github.com/politsin/docker-php /opt/docker-php/
 
-/opt/image-docker-php/build.pl
- * 
+/opt/docker-php/build.py
+```

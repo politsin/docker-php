@@ -48,10 +48,10 @@ RUN apt-get update && \
                        nano \
                        sass \
                        sudo \
-                       nohup \
                        putty \
                        ssmtp \
                        unzip \
+                       screen \
                        sshpass \
                        composer \
                        net-tools \
