@@ -9,6 +9,7 @@ chsh -s /bin/bash www-data
 chown www-data.www-data /var/www/
 chown www-data.www-data /var/www/.bash_profile
 chown www-data.www-data /var/www/.bashrc
+chown www-data.www-data /var/www/.gitconfig
 chown -Rf www-data.www-data /var/www/html
 chown -Rf www-data.www-data /var/www/.drush
 chown -Rf www-data.www-data /var/www/.console
