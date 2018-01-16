@@ -37,7 +37,6 @@ RUN apt-get update && \
                        php-codesniffer \
                        supervisor \
                        mysql-client \
-                       software-properties-common \
                        openssh-server \
                        postgresql-client \
                        mc \
@@ -58,7 +57,8 @@ RUN apt-get update && \
                        net-tools \
                        imagemagick \
                        libxrender1 \
-                       inetutils-ping && \
+                       inetutils-ping \
+                       software-properties-common && \
     apt-get remove --purge -y software-properties-common && \
     apt-get autoremove -y && \
     apt-get clean && \
