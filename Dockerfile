@@ -37,6 +37,7 @@ RUN apt-get update && \
                        php-codesniffer \
                        supervisor \
                        mysql-client \
+                       software-properties-common \
                        openssh-server \
                        postgresql-client \
                        mc \
