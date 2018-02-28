@@ -89,7 +89,7 @@ RUN wget https://github.com/Jan-E/uploadprogress/archive/master.zip && \
     cd .. && rm -rf ./master.zip ./uploadprogress-master
 
 #DRUSH:::
-RUN https://github.com/drush-ops/drush-launcher/releases/download/0.5.1/drush.phar -q -O drush \
+RUN wget https://github.com/drush-ops/drush-launcher/releases/download/0.5.1/drush.phar -q -O drush \
     && php drush core-status \
     && chmod +x drush \
     && mv drush /usr/local/bin/drush
