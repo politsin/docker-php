@@ -2,7 +2,7 @@
 
 import os
 
-ver = "1.8"
+ver = "2.0"
 repo = "docker-php"
 
 # go to build dir
