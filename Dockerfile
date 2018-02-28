@@ -8,7 +8,8 @@ RUN ln -sf /bin/true /sbin/initctl
 ENV DEBIAN_FRONTEND noninteractive
 
 #APT-GET:::
-RUN apt-get update && \
+RUN add-apt-repository ppa:ondrej/php && \
+    apt-get update && \
     apt-get install -y software-properties-common apt-utils && \
     apt-get install -y php7.1 \
                        php7.1-gd  \
