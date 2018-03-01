@@ -19,6 +19,8 @@ RUN apt-get update && \
                        php7.1-dev \
                        php7.1-zip \
                        php7.1-cgi \
+                       php7.1-xml \
+                       php7.1-dom \
                        php7.1-soap \
                        php7.1-curl \
                        php7.1-json \
