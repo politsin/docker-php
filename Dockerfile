@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 MAINTAINER Synapse <mail@synapse-studio.ru>
 
 # Surpress Upstart errors/warning
@@ -12,26 +12,26 @@ RUN apt-get update && \
     apt-get install -y software-properties-common apt-utils && \
     LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php && \
     apt-get update && \
-    apt-get install -y php7.1 \
-                       php7.1-gd  \
-                       php7.1-bz2 \
-                       php7.1-fpm \
-                       php7.1-dev \
-                       php7.1-zip \
-                       php7.1-cgi \
-                       php7.1-xml \
-                       php7.1-dom \
-                       php7.1-soap \
-                       php7.1-curl \
-                       php7.1-json \
-                       php7.1-imap \
-                       php7.1-mysql \
-                       php7.1-pgsql \
-                       php7.1-xmlrpc \
-                       php7.1-mcrypt \
-                       php7.1-bcmath \
-                       php7.1-opcache \
-                       php7.1-mbstring \
+    apt-get install -y php7.2 \
+                       php7.2-gd  \
+                       php7.2-bz2 \
+                       php7.2-fpm \
+                       php7.2-dev \
+                       php7.2-zip \
+                       php7.2-cgi \
+                       php7.2-xml \
+                       php7.2-dom \
+                       php7.2-soap \
+                       php7.2-curl \
+                       php7.2-json \
+                       php7.2-imap \
+                       php7.2-mysql \
+                       php7.2-pgsql \
+                       php7.2-xmlrpc \
+                       php7.2-mcrypt \
+                       php7.2-bcmath \
+                       php7.2-opcache \
+                       php7.2-mbstring \
                        php-pear \
                        php-ssh2 \
                        php-redis \
@@ -87,7 +87,7 @@ RUN wget https://github.com/Jan-E/uploadprogress/archive/master.zip && \
     phpize && ./configure --enable-uploadprogress && \
     make && make install && \
     echo 'extension=uploadprogress.so' > /etc/php/7.1/mods-available/uploadprogress.ini && \
-    ln -s /etc/php/7.1/mods-available/uploadprogress.ini /etc/php/7.1/fpm/conf.d/20-uploadprogress.ini && \
+    ln -s /etc/php/7.2/mods-available/uploadprogress.ini /etc/php/7.2/fpm/conf.d/20-uploadprogress.ini && \
     cd .. && rm -rf ./master.zip ./uploadprogress-master
 
 #DRUSH:::
@@ -126,9 +126,9 @@ RUN npm install gulp-sass && \
     npm install gulp-plumber
 
 #COPY script & config:::
-COPY config/php/www.conf /etc/php/7.1/fpm/pool.d/www.conf
-COPY config/php/php.ini /etc/php/7.1/fpm/php.ini
-COPY config/php/opcache.ini /etc/php/7.1/mods-available/opcache.ini
+COPY config/php/www.conf /etc/php/7.2/fpm/pool.d/www.conf
+COPY config/php/php.ini /etc/php/7.2/fpm/php.ini
+COPY config/php/opcache.ini /etc/php/7.2/mods-available/opcache.ini
 COPY config/ssmtp/ssmtp.conf /etc/ssmtp/ssmtp.conf
 COPY config/cron/www-data /var/spool/cron/crontabs/www-data
 COPY config/supervisor/supervisord.conf /etc/supervisord.conf
