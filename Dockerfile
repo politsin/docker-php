@@ -28,7 +28,6 @@ RUN apt-get update && \
                        php7.2-mysql \
                        php7.2-pgsql \
                        php7.2-xmlrpc \
-                       php7.2-mcrypt \
                        php7.2-bcmath \
                        php7.2-opcache \
                        php7.2-mbstring \
