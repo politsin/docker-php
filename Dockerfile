@@ -73,11 +73,11 @@ RUN apt-get update && \
     rm -rf /usr/share/man/??_*
 
 #PhpCS:::
-RUN cd ~ && \
-  git clone https://git.drupal.org/project/coder.git && \
-  mv /root/coder/coder_sniffer/DrupalPractice /usr/share/php/PHP/CodeSniffer/Standards/DrupalPractice && \
-  mv /root/coder/coder_sniffer/Drupal /usr/share/php/PHP/CodeSniffer/Standards/Drupal && \
-  rm -rf /root/coder
+#RUN cd ~ && \
+#  git clone https://git.drupal.org/project/coder.git && \
+#  mv /root/coder/coder_sniffer/DrupalPractice /usr/share/php/PHP/CodeSniffer/Standards/DrupalPractice && \
+#  mv /root/coder/coder_sniffer/Drupal /usr/share/php/PHP/CodeSniffer/Standards/Drupal && \
+#  rm -rf /root/coder
 
 #Uploadprogress:::
 RUN wget https://github.com/Jan-E/uploadprogress/archive/master.zip && \
