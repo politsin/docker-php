@@ -131,6 +131,8 @@ COPY config/php/php-fpm.conf /etc/php/7.2/fpm/php-fpm.conf
 COPY config/php/opcache.ini /etc/php/7.2/mods-available/opcache.ini
 COPY config/ssmtp/ssmtp.conf /etc/ssmtp/ssmtp.conf
 COPY config/cron/www-data /var/spool/cron/crontabs/www-data
+COPY config/bash/.bash_profile /root/.bash_profile
+COPY config/bash/.bashrc /root/.bashrc
 COPY config/supervisor/supervisord.conf /etc/supervisord.conf
 COPY config/start.sh /start.sh
 
