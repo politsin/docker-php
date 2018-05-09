@@ -114,15 +114,15 @@ RUN apt-get update && \
     apt-get autoclean
 
 #Gulp:::
-RUN npm install gulpjs/gulp-cli -g && \
-    npm install gulpjs/gulp#4.0 --save-dev
+RUN npm install -g gulpjs/gulp-cli  && \
+    npm install -g gulpjs/gulp --save-dev
 
 #GulpPacs:::
-RUN npm install gulp-sass && \
-    npm install gulp-watch && \
-    npm install gulp-touch && \
-    npm install gulp-touch-cmd && \
-    npm install gulp-plumber
+RUN npm install -g gulp-sass && \
+    npm install -g gulp-watch && \
+    npm install -g gulp-touch && \
+    npm install -g gulp-touch-cmd && \
+    npm install -g gulp-plumber
 
 #COPY script & config:::
 COPY config/php/www.conf /etc/php/7.2/fpm/pool.d/www.conf
