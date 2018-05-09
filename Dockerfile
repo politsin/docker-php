@@ -85,7 +85,7 @@ RUN wget https://github.com/Jan-E/uploadprogress/archive/master.zip && \
     cd uploadprogress-master/ && \
     phpize && ./configure --enable-uploadprogress && \
     make && make install && \
-    echo 'extension=uploadprogress.so' > /etc/php/7.1/mods-available/uploadprogress.ini && \
+    echo 'extension=uploadprogress.so' > /etc/php/7.2/mods-available/uploadprogress.ini && \
     ln -s /etc/php/7.2/mods-available/uploadprogress.ini /etc/php/7.2/fpm/conf.d/20-uploadprogress.ini && \
     cd .. && rm -rf ./master.zip ./uploadprogress-master
 
