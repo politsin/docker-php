@@ -107,7 +107,7 @@ RUN wget https://getcomposer.org/composer.phar -q -O composer.phar \
 
 #NodeJS:::
 RUN apt-get update && \
-    curl -sL https://deb.nodesource.com/setup_9.x | bash - && \
+    curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
     apt-get install -y nodejs && \
     apt-get autoremove -y && \
     apt-get clean && \
