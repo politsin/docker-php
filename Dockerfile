@@ -109,6 +109,7 @@ RUN wget https://getcomposer.org/composer.phar -q -O composer.phar \
 RUN apt-get update && \
     curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
     apt-get install -y nodejs && \
+    mkdir -p /opt/npm-global && \
     apt-get autoremove -y && \
     apt-get clean && \
     apt-get autoclean
@@ -120,12 +121,11 @@ RUN npm install -g npm@next && \
     npm install -g bower
 
 #GulpPacs:::
-RUN cd /opt && \
-    npm install -g gulp-sass && \
-    npm install -g gulp-watch && \
-    npm install -g gulp-touch && \
-    npm install -g gulp-touch-cmd && \
-    npm install -g gulp-plumber
+RUN npm install -g --unsafe-perm gulp-sass && \
+    npm install -g --unsafe-perm gulp-watch && \
+    npm install -g --unsafe-perm gulp-touch && \
+    npm install -g --unsafe-perm gulp-touch-cmd && \
+    npm install -g --unsafe-perm gulp-plumber
 
 #COPY script & config:::
 COPY config/php/www.conf /etc/php/7.2/fpm/pool.d/www.conf
