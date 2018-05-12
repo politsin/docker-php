@@ -120,7 +120,8 @@ RUN npm install -g npm@next && \
     npm install -g bower
 
 #GulpPacs:::
-RUN npm install -g gulp-sass && \
+RUN cd /opt && \
+    npm install -g gulp-sass && \
     npm install -g gulp-watch && \
     npm install -g gulp-touch && \
     npm install -g gulp-touch-cmd && \
