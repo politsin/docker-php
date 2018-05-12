@@ -113,9 +113,11 @@ RUN apt-get update && \
     apt-get clean && \
     apt-get autoclean
 
-#Gulp:::
-RUN npm install -g gulpjs/gulp-cli  && \
-    npm install -g gulpjs/gulp --save-dev
+#Tools:::
+RUN npm install -g npm@next && \
+    npm install -g gulpjs/gulp-cli  && \
+    npm install -g gulpjs/gulp && \
+    npm install -g bower
 
 #GulpPacs:::
 RUN npm install -g gulp-sass && \
