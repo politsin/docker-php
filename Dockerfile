@@ -73,11 +73,16 @@ RUN apt-get update && \
     rm -rf /usr/share/man/??_*
 
 #PhpCS:::
-#RUN cd ~ && \
-#  git clone https://git.drupal.org/project/coder.git && \
-#  mv /root/coder/coder_sniffer/DrupalPractice /usr/share/php/PHP/CodeSniffer/Standards/DrupalPractice && \
-#  mv /root/coder/coder_sniffer/Drupal /usr/share/php/PHP/CodeSniffer/Standards/Drupal && \
-#  rm -rf /root/coder
+RUN cd ~ && \
+    wget https://ftp.drupal.org/files/projects/coder-8.x-2.x-dev.tar.gz -q -O coder.tar.gz && \
+    tar xvzf coder.tar.gz && \
+    mv ~/coder/coder_sniffer/DrupalPractice /usr/share/php/PHP/CodeSniffer/src/Standards/DrupalPractice && \
+    mv ~/coder/coder_sniffer/Drupal /usr/share/php/PHP/CodeSniffer/src/Standards/Drupal && \
+    rm coder.tar.gz && \
+    rm -rf /root/coder && \
+    phpcs -i && \
+    phpcs --config-set default_standard Drupal && \
+    phpcs --config-show
 
 #Uploadprogress:::
 RUN wget https://github.com/Jan-E/uploadprogress/archive/master.zip && \
@@ -90,7 +95,7 @@ RUN wget https://github.com/Jan-E/uploadprogress/archive/master.zip && \
     cd .. && rm -rf ./master.zip ./uploadprogress-master
 
 #DRUSH:::
-RUN wget https://github.com/drush-ops/drush/releases/download/8.1.16/drush.phar -q -O drush \
+RUN wget https://github.com/drush-ops/drush/releases/download/8.1.17/drush.phar -q -O drush \
     && php drush core-status \
     && chmod +x drush \
     && mv drush /usr/local/bin/drush
