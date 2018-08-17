@@ -73,12 +73,16 @@ RUN apt-get update && \
     rm -rf /usr/share/man/??_*
 
 #PhpCS:::
+#wget https://ftp.drupal.org/files/projects/coder-8.x-2.x-dev.tar.gz -q -O coder.tar.gz && \
+#tar xvzf coder.tar.gz && \
+#rm coder.tar.gz && \
 RUN cd ~ && \
-    wget https://ftp.drupal.org/files/projects/coder-8.x-2.x-dev.tar.gz -q -O coder.tar.gz && \
-    tar xvzf coder.tar.gz && \
+    git clone https://git.drupal.org/project/coder.git
+    cd ~/coder && \
+    wget https://www.drupal.org/files/issues/2018-04-21/2863898-40.patch && \
+    patch -p1 < 2863898-40.patch && \
     mv ~/coder/coder_sniffer/DrupalPractice /usr/share/php/PHP/CodeSniffer/src/Standards/DrupalPractice && \
     mv ~/coder/coder_sniffer/Drupal /usr/share/php/PHP/CodeSniffer/src/Standards/Drupal && \
-    rm coder.tar.gz && \
     rm -rf /root/coder && \
     phpcs -i && \
     phpcs --config-set default_standard Drupal && \
