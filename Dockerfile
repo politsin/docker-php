@@ -116,16 +116,18 @@ RUN apt-get update && \
 
 #Tools:::
 RUN npm install -g npm@next && \
-    npm install -g gulpjs/gulp-cli  && \
-    npm install -g gulpjs/gulp && \
-    npm install -g bower
+    npm install -g gulpjs/gulp-cli && \
+    cd /var && \
+    npm init --yes && \
+    npm install gulpjs/gulp
 
 #GulpPacs:::
-RUN npm install -g --unsafe-perm gulp-sass && \
-    npm install -g --unsafe-perm gulp-watch && \
-    npm install -g --unsafe-perm gulp-touch && \
-    npm install -g --unsafe-perm gulp-touch-cmd && \
-    npm install -g --unsafe-perm gulp-plumber
+RUN npm install gulp-sass && \
+    npm install gulp-watch && \
+    npm install gulp-touch && \
+    npm install gulp-touch-cmd && \
+    npm install gulp-plumber && \
+    npm install gulp-sourcemaps
 
 #COPY script & config:::
 COPY config/php/www.conf /etc/php/7.2/fpm/pool.d/www.conf
