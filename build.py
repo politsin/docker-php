@@ -3,13 +3,14 @@
 import os
 
 ver = "2.0"
+img = "synst/php7"
 repo = "docker-php"
 
 # go to build dir
 if os.path.exists('/opt/docker-php'):
     os.chdir('/opt/docker-php')
-    os.system("docker build -f Dockerfile -t %s:%s ." % (repo, ver))
-    os.system("docker tag %s:%s %s:latest" % (repo, ver, repo))
+    os.system("docker build -f Dockerfile -t %s:%s ." % (img, ver))
+    os.system("docker tag %s:%s %s:latest" % (img, ver, img))
 
 # get travis repo
 if os.environ['REPO']:
