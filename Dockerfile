@@ -12,25 +12,25 @@ RUN apt-get update && \
     apt-get install -y software-properties-common apt-utils && \
     LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php && \
     apt-get update && \
-    apt-get install -y php7.2 \
-                       php7.2-gd  \
-                       php7.2-bz2 \
-                       php7.2-fpm \
-                       php7.2-dev \
-                       php7.2-zip \
-                       php7.2-cgi \
-                       php7.2-xml \
-                       php7.2-dom \
-                       php7.2-soap \
-                       php7.2-curl \
-                       php7.2-json \
-                       php7.2-imap \
-                       php7.2-mysql \
-                       php7.2-pgsql \
-                       php7.2-xmlrpc \
-                       php7.2-bcmath \
-                       php7.2-opcache \
-                       php7.2-mbstring \
+    apt-get install -y php7.3 \
+                       php7.3-gd  \
+                       php7.3-bz2 \
+                       php7.3-fpm \
+                       php7.3-dev \
+                       php7.3-zip \
+                       php7.3-cgi \
+                       php7.3-xml \
+                       php7.3-dom \
+                       php7.3-soap \
+                       php7.3-curl \
+                       php7.3-json \
+                       php7.3-imap \
+                       php7.3-mysql \
+                       php7.3-pgsql \
+                       php7.3-xmlrpc \
+                       php7.3-bcmath \
+                       php7.3-opcache \
+                       php7.3-mbstring \
                        php-pear \
                        php-ssh2 \
                        php-redis \
@@ -78,20 +78,15 @@ RUN wget https://github.com/Jan-E/uploadprogress/archive/master.zip && \
     cd uploadprogress-master/ && \
     phpize && ./configure --enable-uploadprogress && \
     make && make install && \
-    echo 'extension=uploadprogress.so' > /etc/php/7.2/mods-available/uploadprogress.ini && \
-    ln -s /etc/php/7.2/mods-available/uploadprogress.ini /etc/php/7.2/fpm/conf.d/20-uploadprogress.ini && \
+    echo 'extension=uploadprogress.so' > /etc/php/7.3/mods-available/uploadprogress.ini && \
+    ln -s /etc/php/7.2/mods-available/uploadprogress.ini /etc/php/7.3/fpm/conf.d/20-uploadprogress.ini && \
     cd .. && rm -rf ./master.zip ./uploadprogress-master
 
 #DRUSH:::
-RUN wget https://github.com/drush-ops/drush/releases/download/8.1.17/drush.phar -q -O drush \
+RUN wget https://github.com/drush-ops/drush/releases/download/8.3.0/drush.phar -q -O drush \
     && php drush core-status \
     && chmod +x drush \
     && mv drush /usr/local/bin/drush
-
-#Dupal-console:::
-RUN wget https://drupalconsole.com/installer -q -O drupal.phar \
-    && mv drupal.phar /usr/local/bin/drupal \
-    && chmod +x /usr/local/bin/drupal
 
 #Composer:::
 RUN wget https://getcomposer.org/composer.phar -q -O composer.phar \
@@ -129,8 +124,6 @@ RUN npm install gulp-sass && \
 RUN cd ~ && \
     git clone https://git.drupal.org/project/coder.git && \
     cd ~/coder && \
-    wget https://www.drupal.org/files/issues/2018-04-21/2863898-40.patch && \
-    patch -p1 < 2863898-40.patch && \
     mv ~/coder/coder_sniffer/DrupalPractice /usr/share/php/PHP/CodeSniffer/src/Standards/DrupalPractice && \
     mv ~/coder/coder_sniffer/Drupal /usr/share/php/PHP/CodeSniffer/src/Standards/Drupal && \
     rm -rf /root/coder && \
@@ -139,10 +132,10 @@ RUN cd ~ && \
     phpcs --config-show
 
 #COPY script & config:::
-COPY config/php/www.conf /etc/php/7.2/fpm/pool.d/www.conf
-COPY config/php/php.ini /etc/php/7.2/fpm/php.ini
-COPY config/php/php-fpm.conf /etc/php/7.2/fpm/php-fpm.conf
-COPY config/php/opcache.ini /etc/php/7.2/mods-available/opcache.ini
+COPY config/php/www.conf /etc/php/7.3/fpm/pool.d/www.conf
+COPY config/php/php.ini /etc/php/7.3/fpm/php.ini
+COPY config/php/php-fpm.conf /etc/php/7.3/fpm/php-fpm.conf
+COPY config/php/opcache.ini /etc/php/7.3/mods-available/opcache.ini
 COPY config/ssmtp/ssmtp.conf /etc/ssmtp/ssmtp.conf
 COPY config/cron/www-data /var/spool/cron/crontabs/www-data
 COPY config/bash/.bash_profile /root/.bash_profile
