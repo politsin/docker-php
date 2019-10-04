@@ -2,7 +2,7 @@
 
 import os
 
-ver = "2.0"
+ver = "3.0"
 img = "synst/php7"
 repo = "docker-php"
 
