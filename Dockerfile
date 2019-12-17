@@ -25,6 +25,7 @@ RUN apt-get update && \
                        php7.4-curl \
                        php7.4-json \
                        php7.4-imap \
+                       php7.4-intl \
                        php7.4-mysql \
                        php7.4-pgsql \
                        php7.4-xmlrpc \
