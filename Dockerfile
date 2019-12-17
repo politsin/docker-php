@@ -12,25 +12,25 @@ RUN apt-get update && \
     apt-get install -y software-properties-common apt-utils && \
     LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php && \
     apt-get update && \
-    apt-get install -y php7.3 \
-                       php7.3-gd  \
-                       php7.3-bz2 \
-                       php7.3-fpm \
-                       php7.3-dev \
-                       php7.3-zip \
-                       php7.3-cgi \
-                       php7.3-xml \
-                       php7.3-dom \
-                       php7.3-soap \
-                       php7.3-curl \
-                       php7.3-json \
-                       php7.3-imap \
-                       php7.3-mysql \
-                       php7.3-pgsql \
-                       php7.3-xmlrpc \
-                       php7.3-bcmath \
-                       php7.3-opcache \
-                       php7.3-mbstring \
+    apt-get install -y php7.4 \
+                       php7.4-gd  \
+                       php7.4-bz2 \
+                       php7.4-fpm \
+                       php7.4-dev \
+                       php7.4-zip \
+                       php7.4-cgi \
+                       php7.4-xml \
+                       php7.4-dom \
+                       php7.4-soap \
+                       php7.4-curl \
+                       php7.4-json \
+                       php7.4-imap \
+                       php7.4-mysql \
+                       php7.4-pgsql \
+                       php7.4-xmlrpc \
+                       php7.4-bcmath \
+                       php7.4-opcache \
+                       php7.4-mbstring \
                        php-pear \
                        php-ssh2 \
                        php-redis \
@@ -78,8 +78,8 @@ RUN wget https://github.com/Jan-E/uploadprogress/archive/master.zip && \
     cd uploadprogress-master/ && \
     phpize && ./configure --enable-uploadprogress && \
     make && make install && \
-    echo 'extension=uploadprogress.so' > /etc/php/7.3/mods-available/uploadprogress.ini && \
-    ln -s /etc/php/7.2/mods-available/uploadprogress.ini /etc/php/7.3/fpm/conf.d/20-uploadprogress.ini && \
+    echo 'extension=uploadprogress.so' > /etc/php/7.4/mods-available/uploadprogress.ini && \
+    ln -s /etc/php/7.2/mods-available/uploadprogress.ini /etc/php/7.4/fpm/conf.d/20-uploadprogress.ini && \
     cd .. && rm -rf ./master.zip ./uploadprogress-master
 
 #DRUSH:::
@@ -121,6 +121,7 @@ RUN npm install gulp-sass && \
 # wget https://ftp.drupal.org/files/projects/coder-8.x-2.x-dev.tar.gz -q -O coder.tar.gz && \
 # tar xvzf coder.tar.gz && \
 # rm coder.tar.gz && \
+
 RUN cd ~ && \
     git clone https://git.drupal.org/project/coder.git && \
     cd ~/coder && \
@@ -132,10 +133,10 @@ RUN cd ~ && \
     phpcs --config-show
 
 #COPY script & config:::
-COPY config/php/www.conf /etc/php/7.3/fpm/pool.d/www.conf
-COPY config/php/php.ini /etc/php/7.3/fpm/php.ini
-COPY config/php/php-fpm.conf /etc/php/7.3/fpm/php-fpm.conf
-COPY config/php/opcache.ini /etc/php/7.3/mods-available/opcache.ini
+COPY config/php/www.conf /etc/php/7.4/fpm/pool.d/www.conf
+COPY config/php/php.ini /etc/php/7.4/fpm/php.ini
+COPY config/php/php-fpm.conf /etc/php/7.4/fpm/php-fpm.conf
+COPY config/php/opcache.ini /etc/php/7.4/mods-available/opcache.ini
 COPY config/ssmtp/ssmtp.conf /etc/ssmtp/ssmtp.conf
 COPY config/cron/www-data /var/spool/cron/crontabs/www-data
 COPY config/bash/.bash_profile /root/.bash_profile
