@@ -163,6 +163,9 @@ RUN chmod 755 /start.sh && \
     chmod 0777 /var/spool/cron/crontabs && \
     chmod 0600 /var/spool/cron/crontabs/www-data
 
+#Permit ssh login with password (auth key only)
+RUN sed -i "s/#PasswordAuthentication.*/PasswordAuthentication no/g" /etc/ssh/sshd_config
+
 # Expose Ports
 EXPOSE 22
 
