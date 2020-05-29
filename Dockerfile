@@ -39,8 +39,8 @@ RUN apt-get update && \
                        php-imagick \
                        php-memcached \
                        php-codesniffer \
-                       python-pip \
                        supervisor \
+                       python3-pip \
                        mysql-client \
                        openssh-server \
                        postgresql-client \
@@ -136,7 +136,7 @@ RUN cd ~ && \
     phpcs --config-show
 
 #AWS:::
-RUN pip install awscli
+RUN pip3 install awscli
 
 #COPY script & config:::
 COPY config/php/www.conf /etc/php/7.4/fpm/pool.d/www.conf
