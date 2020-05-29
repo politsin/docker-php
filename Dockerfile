@@ -92,7 +92,7 @@ RUN wget https://github.com/drush-ops/drush/releases/download/8.3.0/drush.phar -
     && mv drush /usr/local/bin/drush
 
 #Composer:::
-RUN wget https://getcomposer.org/composer.phar -q -O composer.phar \
+RUN wget https://getcomposer.org/composer-stable.phar -q -O composer.phar \
     && mv composer.phar /usr/bin/composer \
     && chmod +x /usr/bin/composer
 
