@@ -39,6 +39,7 @@ RUN apt-get update && \
                        php-imagick \
                        php-memcached \
                        php-codesniffer \
+                       python-pip \
                        supervisor \
                        mysql-client \
                        openssh-server \
