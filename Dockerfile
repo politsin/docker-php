@@ -141,7 +141,7 @@ RUN pip3 install awscli
 #Drupal-check:::
 RUN wget https://github.com/mglaman/drupal-check/releases/latest/download/drupal-check.phar  -q -O drupal-check \
     && chmod +x drupal-check \
-    && mv drush /usr/local/bin/drupal-check
+    && mv drupal-check /usr/local/bin/drupal-check
 
 #COPY script & config:::
 COPY config/php/www.conf /etc/php/7.4/fpm/pool.d/www.conf
