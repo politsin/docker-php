@@ -81,7 +81,7 @@ RUN wget https://github.com/Jan-E/uploadprogress/archive/master.zip && \
     phpize && ./configure --enable-uploadprogress && \
     make && make install && \
     echo 'extension=uploadprogress.so' > /etc/php/7.4/mods-available/uploadprogress.ini && \
-    ln -s /etc/php/7.2/mods-available/uploadprogress.ini /etc/php/7.4/fpm/conf.d/20-uploadprogress.ini && \
+    ln -s /etc/php/7.4/mods-available/uploadprogress.ini /etc/php/7.4/fpm/conf.d/20-uploadprogress.ini && \
     cd .. && rm -rf ./master.zip ./uploadprogress-master
 
 #DRUSH:::
@@ -133,6 +133,9 @@ RUN cd ~ && \
     phpcs -i && \
     phpcs --config-set default_standard Drupal && \
     phpcs --config-show
+
+#AWS:::
+RUN pip install awscli
 
 #COPY script & config:::
 COPY config/php/www.conf /etc/php/7.4/fpm/pool.d/www.conf
