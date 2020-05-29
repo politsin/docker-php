@@ -57,6 +57,7 @@ RUN apt-get update && \
                        unzip \
                        screen \
                        sshpass \
+                       sqlite3 \
                        composer \
                        net-tools \
                        imagemagick \
