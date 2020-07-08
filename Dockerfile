@@ -32,6 +32,7 @@ RUN apt-get update && \
                        php7.4-bcmath \
                        php7.4-opcache \
                        php7.4-mbstring \
+                       php-apcu \
                        php-pear \
                        php-ssh2 \
                        php-redis \
