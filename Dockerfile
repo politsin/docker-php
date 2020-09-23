@@ -122,10 +122,6 @@ RUN npm install gulp-sass && \
     npm install gulp-sourcemaps
 
 #PhpCS:::
-# wget https://ftp.drupal.org/files/projects/coder-8.x-2.x-dev.tar.gz -q -O coder.tar.gz && \
-# tar xvzf coder.tar.gz && \
-# rm coder.tar.gz && \
-
 RUN cd ~ && \
     git clone https://git.drupal.org/project/coder.git && \
     cd ~/coder && \
@@ -133,6 +129,7 @@ RUN cd ~ && \
     mv ~/coder/coder_sniffer/Drupal /usr/share/php/PHP/CodeSniffer/src/Standards/Drupal && \
     rm -rf /root/coder && \
     phpcs -i && \
+    phpcs --config-set colors 1 && \
     phpcs --config-set default_standard Drupal && \
     phpcs --config-show
 
