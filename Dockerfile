@@ -109,6 +109,9 @@ RUN apt-get update && \
 #Tools:::
 RUN npm install -g npm@next && \
     npm install -g gulpjs/gulp-cli && \
+    npm install -g yarn && \
+    npm install -g webpack && \
+    npm install -g webpack-cli && \
     cd /var && \
     npm init --yes && \
     npm install gulpjs/gulp
