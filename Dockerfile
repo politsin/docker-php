@@ -100,7 +100,7 @@ RUN wget https://github.com/drush-ops/drush/releases/download/8.3.0/drush.phar -
 #Composer:::
 RUN wget https://getcomposer.org/installer -q -O composer-setup.php \
     && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
-    && chmod +x /usr/bin/composer
+    && chmod +x /usr/local/bin/composer
 
 #NodeJS:::
 RUN apt-get update && \
