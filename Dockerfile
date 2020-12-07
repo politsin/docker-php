@@ -36,6 +36,7 @@ RUN apt-get update && \
                        php-pear \
                        php-ssh2 \
                        php-redis \
+                       php-xdebug \
                        php-sqlite3 \
                        php-imagick \
                        php-memcached \
@@ -57,10 +58,11 @@ RUN apt-get update && \
                        putty \
                        ssmtp \
                        unzip \
+                       awscli \
                        screen \
                        sshpass \
                        sqlite3 \
-                       composer \
+                       dnsutils \
                        net-tools \
                        imagemagick \
                        libxrender1 \
@@ -75,6 +77,9 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /usr/share/man/?? && \
     rm -rf /usr/share/man/??_*
+
+#Disable php-xdebug:::
+RUN echo '' > /etc/php/7.4/mods-available/xdebug.ini
 
 #Uploadprogress:::
 RUN wget https://github.com/Jan-E/uploadprogress/archive/master.zip && \
@@ -93,13 +98,13 @@ RUN wget https://github.com/drush-ops/drush/releases/download/8.3.0/drush.phar -
     && mv drush /usr/local/bin/drush
 
 #Composer:::
-RUN wget https://getcomposer.org/composer-stable.phar -q -O composer.phar \
-    && mv composer.phar /usr/bin/composer \
+RUN wget https://getcomposer.org/installer -q -O composer-setup.php \
+    && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
     && chmod +x /usr/bin/composer
 
 #NodeJS:::
 RUN apt-get update && \
-    curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
+    curl -sL https://deb.nodesource.com/setup_15.x | bash - && \
     apt-get install -y nodejs && \
     mkdir -p /opt/npm-global && \
     apt-get autoremove -y && \
@@ -135,9 +140,6 @@ RUN cd ~ && \
     phpcs --config-set colors 1 && \
     phpcs --config-set default_standard Drupal && \
     phpcs --config-show
-
-#AWS:::
-RUN pip3 install awscli
 
 #COPY script & config:::
 COPY config/php/www.conf /etc/php/7.4/fpm/pool.d/www.conf
