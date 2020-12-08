@@ -116,18 +116,20 @@ RUN apt-get update && \
     
 #Init:::
 RUN npm i -g yarn && \
-    npm i -g gulp gulp-cli && \
-    npm i -g webpack webpack-cli webpack-dev-server
+    npm i -g gulp-cli && \
+    npm i -g webpack-cli 
 
 #GulpPacs:::
 RUN cd /var && \
     npm init --yes && \
+    npm i gulp && \
     npm i node-sass && \
     npm i gulp-watch && \
     npm i gulp-touch && \
     npm i gulp-plumber && \
     npm i gulp-touch-cmd && \
-    npm i gulp-sourcemaps
+    npm i gulp-sourcemaps && \
+    npm i webpack webpack-dev-server
 
 #PhpCS:::
 RUN cd ~ && \
