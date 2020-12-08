@@ -127,15 +127,15 @@ RUN cd /var && \
     npm i gulp-touch && \
     npm i gulp-plumber && \
     npm i gulp-touch-cmd && \
-    npm i gulp-sourcemaps && \
-    npm audit fix --force
+    npm i gulp-sourcemaps
 
 #PhpCS:::
 RUN cd ~ && \
-    git clone https://git.drupal.org/project/coder.git && \
+    git clone https://git.drupalcode.org/project/coder.git && \
     cd ~/coder && \
     mv ~/coder/coder_sniffer/DrupalPractice /usr/share/php/PHP/CodeSniffer/src/Standards/DrupalPractice && \
     mv ~/coder/coder_sniffer/Drupal /usr/share/php/PHP/CodeSniffer/src/Standards/Drupal && \
+	cd ~ && \
     rm -rf /root/coder && \
     phpcs -i && \
     phpcs --config-set colors 1 && \
