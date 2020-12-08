@@ -130,8 +130,7 @@ RUN cd /var && \
     npm install gulp-touch && \
     npm install gulp-plumber && \
     npm install gulp-touch-cmd && \
-    npm install gulp-sourcemaps && \
-    npm audit fix --force
+    npm install gulp-sourcemaps
 
 #PhpCS:::
 RUN cd ~ && \
