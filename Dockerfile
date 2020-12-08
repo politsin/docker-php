@@ -108,27 +108,30 @@ RUN apt-get update && \
     apt-get install -y nodejs && \
     node -v && \
     npm -v && \
+    npm install -g npm@7.1.0 && \
+    npm -v && \
     apt-get autoremove -y && \
     apt-get clean && \
     apt-get autoclean
 
 #Tools:::
-WORKDIR /var
-RUN npm install -g gulpjs/gulp-cli && \
-    npm install -g yarn && \
-    npm install -g webpack && \
-    npm install -g webpack-cli
+RUN cd /var && \
+    npm init --yes
+#Init:::
+RUN npm install -g yarn && \
+    npm install -g gulp gulp-cli && \
+    npm install -g webpack webpack-cli webpack-dev-server && \
+    npm audit fix --force
 
 #GulpPacs:::
 RUN cd /var && \
-    npm init --yes && \
-    npm install gulpjs/gulp && \
-    npm install gulp-sass && \
+    npm install node-sass && \
     npm install gulp-watch && \
     npm install gulp-touch && \
-    npm install gulp-touch-cmd && \
     npm install gulp-plumber && \
-    npm install gulp-sourcemaps
+    npm install gulp-touch-cmd && \
+    npm install gulp-sourcemaps && \
+    npm audit fix --force
 
 #PhpCS:::
 RUN cd ~ && \
