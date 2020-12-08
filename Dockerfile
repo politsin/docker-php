@@ -123,7 +123,7 @@ RUN npm i -g yarn && \
 RUN cd /var && \
     npm init --yes && \
     npm i gulp && \
-    npm i sass && \
+    npm i node-sass && \
     npm i gulp-watch && \
     npm i gulp-plumber && \
     npm i gulp-touch-cmd && \
