@@ -113,24 +113,22 @@ RUN apt-get update && \
     apt-get autoremove -y && \
     apt-get clean && \
     apt-get autoclean
-
-#Tools:::
-RUN cd /var && \
-    npm init --yes
+    
 #Init:::
-RUN npm install -g yarn && \
-    npm install -g gulp gulp-cli && \
-    npm install -g webpack webpack-cli webpack-dev-server && \
-    npm audit fix --force
+RUN npm i -g yarn && \
+    npm i -g gulp gulp-cli && \
+    npm i -g webpack webpack-cli webpack-dev-server
 
 #GulpPacs:::
 RUN cd /var && \
-    npm install node-sass && \
-    npm install gulp-watch && \
-    npm install gulp-touch && \
-    npm install gulp-plumber && \
-    npm install gulp-touch-cmd && \
-    npm install gulp-sourcemaps
+    npm init --yes ?? \
+    npm i node-sass && \
+    npm i gulp-watch && \
+    npm i gulp-touch && \
+    npm i gulp-plumber && \
+    npm i gulp-touch-cmd && \
+    npm i gulp-sourcemaps && \
+    npm audit fix --force
 
 #PhpCS:::
 RUN cd ~ && \
