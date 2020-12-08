@@ -123,10 +123,12 @@ RUN npm i -g yarn && \
 RUN cd /var && \
     npm init --yes && \
     npm i gulp && \
+    npm i sass && \
     npm i gulp-watch && \
     npm i gulp-plumber && \
     npm i gulp-touch-cmd && \
     npm i gulp-sourcemaps && \
+    npm i @selfisekai/gulp-sass && \
     npm i webpack webpack-dev-server
 
 #PhpCS:::
