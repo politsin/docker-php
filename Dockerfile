@@ -121,7 +121,7 @@ RUN npm i -g yarn && \
 
 #GulpPacs:::
 RUN cd /var && \
-    npm init --yes ?? \
+    npm init --yes && \
     npm i node-sass && \
     npm i gulp-watch && \
     npm i gulp-touch && \
