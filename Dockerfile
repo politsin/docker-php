@@ -113,16 +113,17 @@ RUN apt-get update && \
     apt-get autoclean
 
 #Tools:::
+WORKDIR /var
 RUN npm install -g gulpjs/gulp-cli && \
     npm install -g yarn && \
     npm install -g webpack && \
-    npm install -g webpack-cli && \
-    cd /var && \
-    npm init --yes && \
-    npm install gulpjs/gulp
+    npm install -g webpack-cli
 
 #GulpPacs:::
-RUN npm install gulp-sass && \
+RUN cd /var && \
+    npm init --yes && \
+    npm install gulpjs/gulp && \
+    npm install gulp-sass && \
     npm install gulp-watch && \
     npm install gulp-touch && \
     npm install gulp-touch-cmd && \
