@@ -128,7 +128,7 @@ RUN cd /var && \
     npm i gulp-plumber && \
     npm i gulp-touch-cmd && \
     npm i gulp-sourcemaps && \
-    npm i @selfisekai/gulp-sass && \
+    npm i gulp-sass@npm:@selfisekai/gulp-sass && \
     npm i webpack webpack-dev-server
 
 #PhpCS:::
