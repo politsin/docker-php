@@ -106,14 +106,14 @@ RUN wget https://getcomposer.org/installer -q -O composer-setup.php \
 RUN apt-get update && \
     curl -sL https://deb.nodesource.com/setup_15.x | bash - && \
     apt-get install -y nodejs && \
-    mkdir -p /opt/npm-global && \
+    node -v && \
+    npm -v && \
     apt-get autoremove -y && \
     apt-get clean && \
     apt-get autoclean
 
 #Tools:::
-RUN npm install -g npm@next && \
-    npm install -g gulpjs/gulp-cli && \
+RUN npm install -g gulpjs/gulp-cli && \
     npm install -g yarn && \
     npm install -g webpack && \
     npm install -g webpack-cli && \
