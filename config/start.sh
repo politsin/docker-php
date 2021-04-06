@@ -1,13 +1,13 @@
 #!/bin/bash
 
-echo "Europe/Moscow" > /etc/timezone                     
-cp /usr/share/zoneinfo/Europe/Moscow /etc/localtime 
+echo "Europe/Moscow" > /etc/timezone
+cp /usr/share/zoneinfo/Europe/Moscow /etc/localtime
 
 # www-data user
 usermod -d /var/www/ www-data
 chsh -s /bin/bash www-data
 chown www-data.www-data /var/www/
-chown www-data.www-data /var/www//html
+chown www-data.www-data /var/www/html
 chown www-data.www-data /var/www/.bash_profile
 chown www-data.www-data /var/www/.bashrc
 chown www-data.www-data /var/www/.gitconfig
