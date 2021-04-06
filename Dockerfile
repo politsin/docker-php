@@ -12,26 +12,26 @@ RUN apt-get update && \
     apt-get install -y software-properties-common apt-utils && \
     LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php && \
     apt-get update && \
-    apt-get install -y php7.4 \
-                       php7.4-gd  \
-                       php7.4-bz2 \
-                       php7.4-fpm \
-                       php7.4-dev \
-                       php7.4-zip \
-                       php7.4-cgi \
-                       php7.4-xml \
-                       php7.4-dom \
-                       php7.4-soap \
-                       php7.4-curl \
-                       php7.4-json \
-                       php7.4-imap \
-                       php7.4-intl \
-                       php7.4-mysql \
-                       php7.4-pgsql \
-                       php7.4-xmlrpc \
-                       php7.4-bcmath \
-                       php7.4-opcache \
-                       php7.4-mbstring \
+    apt-get install -y php8.0 \
+                       php8.0-gd  \
+                       php8.0-bz2 \
+                       php8.0-fpm \
+                       php8.0-dev \
+                       php8.0-zip \
+                       php8.0-cgi \
+                       php8.0-xml \
+                       php8.0-dom \
+                       php8.0-soap \
+                       php8.0-curl \
+                       php8.0-json \
+                       php8.0-imap \
+                       php8.0-intl \
+                       php8.0-mysql \
+                       php8.0-pgsql \
+                       php8.0-xmlrpc \
+                       php8.0-bcmath \
+                       php8.0-opcache \
+                       php8.0-mbstring \
                        php-apcu \
                        php-pear \
                        php-ssh2 \
@@ -79,7 +79,7 @@ RUN apt-get update && \
     rm -rf /usr/share/man/??_*
 
 #Disable php-xdebug:::
-RUN echo '' > /etc/php/7.4/mods-available/xdebug.ini
+RUN echo '' > /etc/php/8.0/mods-available/xdebug.ini
 
 #Uploadprogress:::
 RUN wget https://github.com/Jan-E/uploadprogress/archive/master.zip && \
@@ -87,8 +87,8 @@ RUN wget https://github.com/Jan-E/uploadprogress/archive/master.zip && \
     cd uploadprogress-master/ && \
     phpize && ./configure --enable-uploadprogress && \
     make && make install && \
-    echo 'extension=uploadprogress.so' > /etc/php/7.4/mods-available/uploadprogress.ini && \
-    ln -s /etc/php/7.4/mods-available/uploadprogress.ini /etc/php/7.4/fpm/conf.d/20-uploadprogress.ini && \
+    echo 'extension=uploadprogress.so' > /etc/php/8.0/mods-available/uploadprogress.ini && \
+    ln -s /etc/php/8.0/mods-available/uploadprogress.ini /etc/php/8.0/fpm/conf.d/20-uploadprogress.ini && \
     cd .. && rm -rf ./master.zip ./uploadprogress-master
 
 #DRUSH:::
@@ -113,11 +113,11 @@ RUN apt-get update && \
     apt-get autoremove -y && \
     apt-get clean && \
     apt-get autoclean
-    
+
 #Init:::
 RUN npm i -g yarn && \
     npm i -g gulp-cli && \
-    npm i -g webpack-cli 
+    npm i -g webpack-cli
 
 #GulpPacs:::
 RUN cd /var && \
@@ -145,10 +145,10 @@ RUN cd ~ && \
     phpcs --config-show
 
 #COPY script & config:::
-COPY config/php/www.conf /etc/php/7.4/fpm/pool.d/www.conf
-COPY config/php/php.ini /etc/php/7.4/fpm/php.ini
-COPY config/php/php-fpm.conf /etc/php/7.4/fpm/php-fpm.conf
-COPY config/php/opcache.ini /etc/php/7.4/mods-available/opcache.ini
+COPY config/php/www.conf /etc/php/8.0/fpm/pool.d/www.conf
+COPY config/php/php.ini /etc/php/8.0/fpm/php.ini
+COPY config/php/php-fpm.conf /etc/php/8.0/fpm/php-fpm.conf
+COPY config/php/opcache.ini /etc/php/8.0/mods-available/opcache.ini
 COPY config/ssmtp/ssmtp.conf /etc/ssmtp/ssmtp.conf
 COPY config/cron/www-data /var/spool/cron/crontabs/www-data
 COPY config/bash/.bash_profile /root/.bash_profile
