@@ -3,7 +3,7 @@
 import os
 
 ver = "8.0"
-img = "synst/php7"
+img = "synst/php"
 repo = "docker-php"
 
 # go to build dir
