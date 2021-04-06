@@ -23,7 +23,6 @@ RUN apt-get update && \
                        php8.0-dom \
                        php8.0-soap \
                        php8.0-curl \
-                       php8.0-json \
                        php8.0-imap \
                        php8.0-intl \
                        php8.0-mysql \
@@ -33,6 +32,7 @@ RUN apt-get update && \
                        php8.0-opcache \
                        php8.0-mbstring \
                        php-apcu \
+                       php-json \
                        php-pear \
                        php-ssh2 \
                        php-redis \
