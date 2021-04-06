@@ -82,14 +82,9 @@ RUN apt-get update && \
 RUN echo '' > /etc/php/8.0/mods-available/xdebug.ini
 
 #Uploadprogress:::
-RUN wget https://github.com/Jan-E/uploadprogress/archive/master.zip && \
-    unzip master.zip && \
-    cd uploadprogress-master/ && \
-    phpize && ./configure --enable-uploadprogress && \
-    make && make install && \
+RUN pecl install uploadprogress \
     echo 'extension=uploadprogress.so' > /etc/php/8.0/mods-available/uploadprogress.ini && \
-    ln -s /etc/php/8.0/mods-available/uploadprogress.ini /etc/php/8.0/fpm/conf.d/20-uploadprogress.ini && \
-    cd .. && rm -rf ./master.zip ./uploadprogress-master
+    ln -s /etc/php/8.0/mods-available/uploadprogress.ini /etc/php/8.0/fpm/conf.d/20-uploadprogress.ini
 
 #DRUSH:::
 RUN wget https://github.com/drush-ops/drush/releases/download/8.3.0/drush.phar -q -O drush \
