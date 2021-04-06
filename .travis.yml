@@ -7,7 +7,7 @@ services:
 
 env:
   global:
-    - REPO=synst/php7
+    - REPO=synst/php
 
 script:
   - python build.py
