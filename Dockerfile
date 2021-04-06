@@ -87,8 +87,7 @@ RUN pecl install uploadprogress \
     ln -s /etc/php/8.0/mods-available/uploadprogress.ini /etc/php/8.0/fpm/conf.d/20-uploadprogress.ini
 
 #DRUSH:::
-RUN wget https://github.com/drush-ops/drush/releases/download/8.3.0/drush.phar -q -O drush \
-    && php drush core-status \
+RUN wget https://github.com/drush-ops/drush-launcher/releases/latest/download/drush.phar -q -O drush \
     && chmod +x drush \
     && mv drush /usr/local/bin/drush
 
