@@ -79,8 +79,6 @@ RUN apt update && \
     apt autoremove -y && \
     apt clean && \
     apt autoclean && \
-    mkdir /var/run/sshd && \
-    echo -n > /var/lib/apt/extended_states && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /usr/share/man/?? && \
     rm -rf /usr/share/man/??_*
