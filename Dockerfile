@@ -7,78 +7,85 @@ RUN ln -sf /bin/true /sbin/initctl
 # Let the conatiner know that there is no tty
 ENV DEBIAN_FRONTEND noninteractive
 
-#APT-GET:::
-RUN apt-get update && \
-    apt-get install -y software-properties-common apt-utils && \
-    LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php && \
-    apt-get update && \
-    apt-get install -y php8.0 \
-                       php8.0-gd  \
-                       php8.0-bz2 \
-                       php8.0-fpm \
-                       php8.0-dev \
-                       php8.0-zip \
-                       php8.0-cgi \
-                       php8.0-xml \
-                       php8.0-dom \
-                       php8.0-soap \
-                       php8.0-curl \
-                       php8.0-imap \
-                       php8.0-intl \
-                       php8.0-mysql \
-                       php8.0-pgsql \
-                       php8.0-xmlrpc \
-                       php8.0-bcmath \
-                       php8.0-opcache \
-                       php8.0-mbstring \
-                       php-apcu \
-                       php-json \
-                       php-pear \
-                       php-ssh2 \
-                       php-redis \
-                       php-xdebug \
-                       php-sqlite3 \
-                       php-imagick \
-                       php-memcached \
-                       php-codesniffer \
-                       supervisor \
-                       python3-pip \
-                       mysql-client \
-                       openssh-server \
-                       postgresql-client \
-                       mc \
-                       git \
-                       zip \
-                       cron \
-                       curl \
-                       htop \
-                       nano \
-                       sass \
-                       sudo \
-                       putty \
-                       ssmtp \
-                       unzip \
-                       awscli \
-                       screen \
-                       sshpass \
-                       sqlite3 \
-                       dnsutils \
-                       net-tools \
-                       imagemagick \
-                       libxrender1 \
-                       inetutils-ping \
-                       software-properties-common && \
-    apt-get remove --purge -y software-properties-common && \
-    apt-get autoremove -y && \
-    apt-get clean && \
-    apt-get autoclean && \
+# APT install:::
+RUN apt update && \
+    apt install -y software-properties-common \
+                   cron \
+                   ssmtp \
+                   dnsutils \
+                   net-tools \
+                   apt-utils \
+                   supervisor \
+                   imagemagick \
+                   openssh-server \
+                   inetutils-ping && \
+    apt install -y mc \
+                   git \
+                   zip \
+                   curl \
+                   htop \
+                   nano \
+                   sass \
+                   putty \
+                   unzip \
+                   sshpass && \
+    apt install -y sqlite3 \
+                   mysql-client \
+                   postgresql-client &&  \
+    apt install -y awscli \
+                   python3-pip && \
+    apt autoremove -y && \
+    apt clean && \
+    apt autoclean && \
     mkdir /var/run/sshd && \
     echo -n > /var/lib/apt/extended_states && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /usr/share/man/?? && \
     rm -rf /usr/share/man/??_*
 
-#Disable php-xdebug:::
+#PHP:::
+RUN apt update && \
+    LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php && \
+    apt update && \
+    apt install -y php8.0 \
+                   php8.0-gd  \
+                   php8.0-bz2 \
+                   php8.0-fpm \
+                   php8.0-dev \
+                   php8.0-zip \
+                   php8.0-cgi \
+                   php8.0-xml \
+                   php8.0-dom \
+                   php8.0-soap \
+                   php8.0-curl \
+                   php8.0-imap \
+                   php8.0-intl \
+                   php8.0-mysql \
+                   php8.0-pgsql \
+                   php8.0-xmlrpc \
+                   php8.0-bcmath \
+                   php8.0-opcache \
+                   php8.0-mbstring \
+                   php-apcu \
+                   php-json \
+                   php-pear \
+                   php-ssh2 \
+                   php-redis \
+                   php-xdebug \
+                   php-sqlite3 \
+                   php-imagick \
+                   php-memcached \
+                   php-codesniffer && \
+    apt autoremove -y && \
+    apt clean && \
+    apt autoclean && \
+    mkdir /var/run/sshd && \
+    echo -n > /var/lib/apt/extended_states && \
+    rm -rf /var/lib/apt/lists/* && \
+    rm -rf /usr/share/man/?? && \
+    rm -rf /usr/share/man/??_*
+
+# Disable php-xdebug:::
 RUN echo '' > /etc/php/8.0/mods-available/xdebug.ini
 
 #Uploadprogress:::
@@ -97,16 +104,16 @@ RUN wget https://getcomposer.org/installer -q -O composer-setup.php \
     && chmod +x /usr/local/bin/composer
 
 #NodeJS:::
-RUN apt-get update && \
+RUN apt update && \
     curl -sL https://deb.nodesource.com/setup_15.x | bash - && \
-    apt-get install -y nodejs && \
+    apt install -y nodejs && \
     node -v && \
     npm -v && \
     npm install -g npm@7.1.0 && \
     npm -v && \
-    apt-get autoremove -y && \
-    apt-get clean && \
-    apt-get autoclean
+    apt autoremove -y && \
+    apt clean && \
+    apt autoclean
 
 #Init:::
 RUN npm i -g yarn && \
