@@ -25,6 +25,7 @@ RUN apt update && \
                    curl \
                    htop \
                    nano \
+		   ncdu \
                    sass \
                    putty \
                    unzip \
