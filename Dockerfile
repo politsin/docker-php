@@ -138,7 +138,7 @@ RUN cd ~ && \
     cd ~/coder && \
     mv ~/coder/coder_sniffer/DrupalPractice /usr/share/php/PHP/CodeSniffer/src/Standards/DrupalPractice && \
     mv ~/coder/coder_sniffer/Drupal /usr/share/php/PHP/CodeSniffer/src/Standards/Drupal && \
-	cd ~ && \
+    cd ~ && \
     rm -rf /root/coder && \
     phpcs -i && \
     phpcs --config-set colors 1 && \
