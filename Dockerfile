@@ -25,11 +25,11 @@ RUN apt update && \
                    curl \
                    htop \
                    nano \
-		   ncdu \
+                   ncdu \
                    sass \
                    putty \
                    unzip \
-		   ranger \
+                   ranger \
                    sshpass && \
     apt install -y sqlite3 \
                    mysql-client \
