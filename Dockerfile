@@ -105,11 +105,11 @@ RUN wget https://getcomposer.org/installer -q -O composer-setup.php \
 
 #NodeJS:::
 RUN apt update && \
-    curl -sL https://deb.nodesource.com/setup_15.x | bash - && \
+    curl -sL https://deb.nodesource.com/setup_16.x | bash - && \
     apt install -y nodejs && \
     node -v && \
     npm -v && \
-    npm install -g npm@7.1.0 && \
+    npm install -g npm@7.14.0 && \
     npm -v && \
     apt autoremove -y && \
     apt clean && \
