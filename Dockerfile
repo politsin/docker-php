@@ -136,6 +136,10 @@ RUN cd /var && \
 RUN cd ~ && \
     git clone https://git.drupalcode.org/project/coder.git && \
     cd ~/coder && \
+    rm ~/coder/coder_sniffer/Drupal/Sniffs/Classes/UseGlobalClassSniff.php && \
+    rm ~/coder/tests/Drupal/Classes/UseGlobalClassUnitTest.inc && \
+    rm ~/coder/tests/Drupal/Classes/UseGlobalClassUnitTest.inc.fixed && \
+    rm ~/coder/tests/Drupal/Classes/UseGlobalClassUnitTest.php && \
     mv ~/coder/coder_sniffer/DrupalPractice /usr/share/php/PHP/CodeSniffer/src/Standards/DrupalPractice && \
     mv ~/coder/coder_sniffer/Drupal /usr/share/php/PHP/CodeSniffer/src/Standards/Drupal && \
     cd ~ && \
