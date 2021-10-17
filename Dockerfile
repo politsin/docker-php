@@ -109,7 +109,7 @@ RUN apt update && \
     apt install -y nodejs && \
     node -v && \
     npm -v && \
-    npm install -g npm@7.14.0 && \
+    npm install -g npm && \
     npm -v && \
     apt autoremove -y && \
     apt clean && \
