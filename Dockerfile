@@ -22,7 +22,9 @@ RUN apt update && \
                    inetutils-ping && \
     apt install -y mc \
                    git \
+                   nnn \
                    zip \
+                   zsh \
                    curl \
                    htop \
                    nano \
@@ -30,7 +32,6 @@ RUN apt update && \
                    sass \
                    putty \
                    unzip \
-                   ranger \
                    sshpass && \
     apt install -y sqlite3 \
                    mysql-client \
