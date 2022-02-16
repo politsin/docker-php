@@ -51,25 +51,25 @@ RUN apt update && \
 RUN apt update && \
     LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php && \
     apt update && \
-    apt install -y php8.0 \
-                   php8.0-gd  \
-                   php8.0-bz2 \
-                   php8.0-fpm \
-                   php8.0-dev \
-                   php8.0-zip \
-                   php8.0-cgi \
-                   php8.0-xml \
-                   php8.0-dom \
-                   php8.0-soap \
-                   php8.0-curl \
-                   php8.0-imap \
-                   php8.0-intl \
-                   php8.0-mysql \
-                   php8.0-pgsql \
-                   php8.0-xmlrpc \
-                   php8.0-bcmath \
-                   php8.0-opcache \
-                   php8.0-mbstring \
+    apt install -y php8.1 \
+                   php8.1-gd  \
+                   php8.1-bz2 \
+                   php8.1-fpm \
+                   php8.1-dev \
+                   php8.1-zip \
+                   php8.1-cgi \
+                   php8.1-xml \
+                   php8.1-dom \
+                   php8.1-soap \
+                   php8.1-curl \
+                   php8.1-imap \
+                   php8.1-intl \
+                   php8.1-mysql \
+                   php8.1-pgsql \
+                   php8.1-xmlrpc \
+                   php8.1-bcmath \
+                   php8.1-opcache \
+                   php8.1-mbstring \
                    php-apcu \
                    php-json \
                    php-pear \
@@ -88,12 +88,12 @@ RUN apt update && \
     rm -rf /usr/share/man/??_*
 
 # Disable php-xdebug:::
-RUN echo '' > /etc/php/8.0/mods-available/xdebug.ini
+RUN echo '' > /etc/php/8.1/mods-available/xdebug.ini
 
 #Uploadprogress:::
 RUN pecl install uploadprogress \
-    echo 'extension=uploadprogress.so' > /etc/php/8.0/mods-available/uploadprogress.ini && \
-    ln -s /etc/php/8.0/mods-available/uploadprogress.ini /etc/php/8.0/fpm/conf.d/20-uploadprogress.ini
+    echo 'extension=uploadprogress.so' > /etc/php/8.1/mods-available/uploadprogress.ini && \
+    ln -s /etc/php/8.1/mods-available/uploadprogress.ini /etc/php/8.1/fpm/conf.d/20-uploadprogress.ini
 
 #DRUSH:::
 RUN wget https://github.com/drush-ops/drush-launcher/releases/latest/download/drush.phar -q -O drush \
@@ -152,10 +152,10 @@ RUN cd ~ && \
     phpcs --config-show
 
 #COPY script & config:::
-COPY config/php/www.conf /etc/php/8.0/fpm/pool.d/www.conf
-COPY config/php/php.ini /etc/php/8.0/fpm/php.ini
-COPY config/php/php-fpm.conf /etc/php/8.0/fpm/php-fpm.conf
-COPY config/php/opcache.ini /etc/php/8.0/mods-available/opcache.ini
+COPY config/php/www.conf /etc/php/8.1/fpm/pool.d/www.conf
+COPY config/php/php.ini /etc/php/8.1/fpm/php.ini
+COPY config/php/php-fpm.conf /etc/php/8.1/fpm/php-fpm.conf
+COPY config/php/opcache.ini /etc/php/8.1/mods-available/opcache.ini
 COPY config/ssmtp/ssmtp.conf /etc/ssmtp/ssmtp.conf
 COPY config/cron/www-data /var/spool/cron/crontabs/www-data
 COPY config/bash/.bash_profile /root/.bash_profile
