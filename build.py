@@ -2,7 +2,7 @@
 
 import os
 
-ver = "8.0"
+ver = "8.1"
 img = "synst/php"
 repo = "docker-php"
 
