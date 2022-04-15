@@ -7,14 +7,20 @@ services:
 
 env:
   global:
+    - VERSION=8.1
     - REPO=synst/php
-    
+
 before_script:
   - echo "$DOCKER_PASS" | docker login -u $DOCKER_USER --password-stdin
 
 script:
-  - python build.py
+  - ./build.sh
 
 after_script:
+  - docker tag synst/php $REPO:latest
+  - docker tag synst/php $REPO:$VERSION
+  - docker tag synst/php $REPO:$VERSION.$TRAVIS_BUILD_NUMBER
   - echo "$DOCKER_PASS" | docker login -u $DOCKER_USER --password-stdin
   - docker push $REPO
+  - docker push $REPO:$VERSION
+  - docker push $REPO:$VERSION.$TRAVIS_BUILD_NUMBER
