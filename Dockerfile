@@ -114,6 +114,7 @@ RUN git clone https://github.com/composer/composer.git ~/composer-build && \
     php composer.phar install && \
     php composer.phar update && \
     mv ~/composer-build/composer.phar /usr/local/bin/composer && \
+    rm -rf ~/composer-buil  && \
     chmod +x /usr/local/bin/composer
 
 #NodeJS:::
