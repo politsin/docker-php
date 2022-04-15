@@ -111,6 +111,8 @@ RUN git clone https://github.com/composer/composer.git ~/composer-build \
     && cd ~/composer-build && patch -p1 < composer.patch \
     && php -d phar.readonly=0 bin/compile \
     && rm /usr/local/bin/composer \
+    && php composer.phar install \
+    && php composer.phar update \
     && mv ~/composer-build/composer.phar /usr/local/bin/composer \
     && chmod +x /usr/local/bin/composer
 
