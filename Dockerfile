@@ -109,9 +109,9 @@ RUN git clone https://github.com/composer/composer.git ~/composer-build \
     && composer install  -o -d ~/composer-build \
     && wget https://raw.githubusercontent.com/politsin/snipets/master/patch/composer.patch -q -O ~/composer-build/composer.patch \
     && cd ~/composer-build && patch -p1 < composer.patch \
-    && php -d phar.readonly=0 bin/compile
-    && rm /usr/local/bin/composer
-    && mv ~/composer-build/composer.phar /usr/local/bin/composer
+    && php -d phar.readonly=0 bin/compile \
+    && rm /usr/local/bin/composer \
+    && mv ~/composer-build/composer.phar /usr/local/bin/composer \
     && chmod +x /usr/local/bin/composer
 
 #NodeJS:::
