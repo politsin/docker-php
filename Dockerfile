@@ -19,8 +19,8 @@ RUN apt update && \
                    supervisor \
                    imagemagick \
                    openssh-server \
-                   inetutils-ping && \
-    apt install -y mc \
+                   inetutils-ping
+RUN apt install -y mc \
                    git \
                    nnn \
                    zip \
