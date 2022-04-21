@@ -8,8 +8,8 @@ RUN ln -sf /bin/true /sbin/initctl
 ENV DEBIAN_FRONTEND noninteractive
 
 # APT install:::
-RUN apt update
-RUN apt install -y software-properties-common \
+RUN apt update &&  \
+    apt install -y software-properties-common \
                    cron \
                    sudo \
                    ssmtp \
@@ -19,8 +19,8 @@ RUN apt install -y software-properties-common \
                    supervisor \
                    imagemagick \
                    openssh-server \
-                   inetutils-ping
-RUN apt install -y mc \
+                   inetutils-ping &&  \
+    apt install -y mc \
                    git \
                    nnn \
                    zip \
