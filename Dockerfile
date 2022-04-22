@@ -1,4 +1,4 @@
-FROM ubuntu:jammy
+FROM ubuntu:20:04
 MAINTAINER Synapse <mail@synapse-studio.ru>
 
 # Surpress Upstart errors/warning
@@ -8,7 +8,7 @@ RUN ln -sf /bin/true /sbin/initctl
 ENV DEBIAN_FRONTEND noninteractive
 
 # APT install:::
-RUN apt-get update -y
+RUN apt update -y
 RUN apt install -y software-properties-common \
                    cron \
                    sudo \
