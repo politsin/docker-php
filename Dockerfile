@@ -8,8 +8,9 @@ RUN ln -sf /bin/true /sbin/initctl
 ENV DEBIAN_FRONTEND noninteractive
 
 # APT install:::
-# RUN apt update
-RUN apt install -y software-properties-common \
+RUN lsb_release -a
+RUN apt-get update
+RUN apt-get install -y software-properties-common \
                    cron \
                    sudo \
                    ssmtp \
