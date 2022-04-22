@@ -1,6 +1,5 @@
-FROM ubuntu:22.04
+FROM ubuntu:jammy
 MAINTAINER Synapse <mail@synapse-studio.ru>
-ENV DOCKER_PLATFORMS=linux/amd64
 
 # Surpress Upstart errors/warning
 RUN dpkg-divert --local --rename --add /sbin/initctl
