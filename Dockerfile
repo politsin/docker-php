@@ -8,7 +8,7 @@ RUN ln -sf /bin/true /sbin/initctl
 ENV DEBIAN_FRONTEND noninteractive
 
 # APT install:::
-RUN apt-get update
+# RUN apt update
 RUN apt install -y software-properties-common \
                    cron \
                    sudo \
