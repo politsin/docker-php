@@ -8,7 +8,6 @@ RUN ln -sf /bin/true /sbin/initctl
 ENV DEBIAN_FRONTEND noninteractive
 
 # APT install:::
-RUN apt update
 RUN apt update -y && \
     apt install -y software-properties-common \
                    cron \
