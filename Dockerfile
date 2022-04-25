@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 MAINTAINER Synapse <mail@synapse-studio.ru>
 
 # Surpress Upstart errors/warning
@@ -8,8 +8,8 @@ RUN ln -sf /bin/true /sbin/initctl
 ENV DEBIAN_FRONTEND noninteractive
 
 # APT install:::
-RUN apt update -y
-RUN apt install -y software-properties-common \
+RUN apt update -y && \
+    apt install -y software-properties-common \
                    cron \
                    sudo \
                    ssmtp \
@@ -19,7 +19,7 @@ RUN apt install -y software-properties-common \
                    supervisor \
                    imagemagick \
                    openssh-server \
-                   inetutils-ping &&  \
+                   inetutils-ping && \
     apt install -y mc \
                    git \
                    nnn \
@@ -35,7 +35,7 @@ RUN apt install -y software-properties-common \
                    sshpass && \
     apt install -y sqlite3 \
                    mysql-client \
-                   postgresql-client &&  \
+                   postgresql-client && \
     apt install -y awscli \
                    python3-pip && \
     apt autoremove -y && \
