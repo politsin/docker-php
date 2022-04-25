@@ -14,8 +14,7 @@ before_script:
   - echo "$DOCKER_PASS" | docker login -u $DOCKER_USER --password-stdin
 
 script:
-  - chmod +x ./build.sh
-  - ./build.sh
+  - docker build . -t synst/php
 
 after_script:
   - docker tag synst/php $REPO:latest
