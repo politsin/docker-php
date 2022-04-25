@@ -8,8 +8,8 @@ RUN ln -sf /bin/true /sbin/initctl
 ENV DEBIAN_FRONTEND noninteractive
 
 # APT install:::
-RUN apt-get clean
-RUN apt-get update || apt-get update
+RUN sudo apt autoremove && sudo apt autoclean -y
+RUN apt-get update
 RUN apt-get install -y cron software-properties-common net-tools
 RUN apt update -y && \
     apt install -y software-properties-common \
