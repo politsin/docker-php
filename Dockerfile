@@ -11,10 +11,10 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN sed -i -e 's/^APT/# APT/' -e 's/^DPkg/# DPkg/' \
       /etc/apt/apt.conf.d/docker-clean
 RUN ls -la /etc/apt/apt.conf.d
-RUN rm /etc/apt/apt.conf.d/01-vendor-ubuntu
-RUN rm /etc/apt/apt.conf.d/01autoremove
-RUN rm /etc/apt/apt.conf.d/docker-clean
+RUN rm /etc/apt/apt.conf.d/70debconf
+RUN rm /etc/apt/apt.conf.d/docker-autoremove-suggests
 RUN rm /etc/apt/apt.conf.d/docker-gzip-indexes
+RUN rm /etc/apt/apt.conf.d/docker-no-languages
 RUN apt update -y && \
     apt install -y software-properties-common \
                    cron \
