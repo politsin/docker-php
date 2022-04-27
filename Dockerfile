@@ -85,9 +85,9 @@ RUN apt update && \
                    php-sqlite3 \
                    php-imagick \
                    php-memcached \
-                   php-codesniffer && \
-    apt autoremove -y && \
-    apt clean && \
+                   php-codesniffer
+RUN apt autoremove -y 
+RUN apt clean && \
     apt autoclean && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /usr/share/man/?? && \
