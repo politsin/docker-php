@@ -44,14 +44,7 @@ RUN apt update -y && \
                    postgresql-client && \
     apt install -y awscli \
                    python3-pip && \
-    apt autoremove -y && \
-    apt clean && \
-    apt autoclean && \
-    mkdir /var/run/sshd && \
-    echo -n > /var/lib/apt/extended_states && \
-    rm -rf /var/lib/apt/lists/* && \
-    rm -rf /usr/share/man/?? && \
-    rm -rf /usr/share/man/??_*
+    apt autoremove -y
 
 #PHP:::
 RUN apt update && \
