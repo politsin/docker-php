@@ -10,6 +10,8 @@ ENV DEBIAN_FRONTEND noninteractive
 # APT install:::
 RUN sed -i -e 's/^APT/# APT/' -e 's/^DPkg/# DPkg/' \
       /etc/apt/apt.conf.d/docker-clean
+RUN cat /etc/apt/apt.conf.d/docker-clean
+RUN rm /etc/apt/apt.conf.d/docker-clean
 RUN apt update -y && \
     apt install -y software-properties-common \
                    cron \
