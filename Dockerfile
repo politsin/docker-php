@@ -14,6 +14,17 @@ RUN ls -la /etc/apt/apt.conf.d
 RUN apt update -y 
 RUN apt install -y --reinstall coreutils
 RUN apt autoremove -y 
+RUN apt install -y software-properties-common \
+                   cron \
+                   sudo \
+                   ssmtp \
+                   dnsutils \
+                   net-tools \
+                   apt-utils \
+                   supervisor \
+                   imagemagick \
+                   openssh-server \
+                   inetutils-ping
 RUN apt update -y && \
     apt install -y software-properties-common \
                    cron \
