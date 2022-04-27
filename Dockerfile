@@ -10,6 +10,7 @@ ENV DEBIAN_FRONTEND noninteractive
 # APT install:::
 RUN sed -i -e 's/^APT/# APT/' -e 's/^DPkg/# DPkg/' \
       /etc/apt/apt.conf.d/docker-clean
+RUN apt remove -y libappstream3
 RUN apt update -y && \
     apt install -y software-properties-common \
                    cron \
