@@ -25,9 +25,9 @@ RUN apt install -y software-properties-common \
                    imagemagick \
                    openssh-server \
                    inetutils-ping
-RUN apt install -y mc
-RUN apt install -y git
-RUN apt install -y nnn \
+# RUN apt install -y mc
+RUN apt install -y git \
+                   nnn \
                    zip \
                    zsh \
                    curl \
