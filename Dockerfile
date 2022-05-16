@@ -51,6 +51,7 @@ RUN apt update -y && \
                    unzip \
                    sshpass && \
     apt install -y sqlite3 \
+                   redis-tools \
                    mysql-client \
                    postgresql-client && \
     apt install -y awscli \
