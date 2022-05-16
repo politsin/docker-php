@@ -21,7 +21,35 @@ RUN apt update -y && \
                    supervisor \
                    imagemagick \
                    openssh-server \
-                   inetutils-ping
+                   inetutils-ping \
+                   php8.1 \
+                   php8.1-gd  \
+                   php8.1-bz2 \
+                   php8.1-fpm \
+                   php8.1-dev \
+                   php8.1-zip \
+                   php8.1-cgi \
+                   php8.1-xml \
+                   php8.1-dom \
+                   php8.1-soap \
+                   php8.1-curl \
+                   php8.1-imap \
+                   php8.1-intl \
+                   php8.1-mysql \
+                   php8.1-pgsql \
+                   php8.1-xmlrpc \
+                   php8.1-bcmath \
+                   php8.1-opcache \
+                   php8.1-mbstring \
+                   php-apcu \
+                   php-json \
+                   php-pear \
+                   php-ssh2 \
+                   php-redis \
+                   php-xdebug \
+                   php-sqlite3 \
+                   php-imagick \
+                   php-memcached \
 # RUN apt install -y mc \
 #                    git \
 #                    nnn \
