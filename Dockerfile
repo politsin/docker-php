@@ -14,14 +14,7 @@ RUN ls -la /etc/apt/apt.conf.d
 RUN apt update -y 
 RUN apt install -y --reinstall coreutils
 RUN apt autoremove -y && apt-get clean
-RUN apt install -y supervisor \
-                   imagemagick \
-                   openssh-server \
-                   inetutils-ping
-RUN apt install -y software-properties-common \
-                   cron \
-                   sudo \
-                   ssmtp \
+RUN apt install -y ssmtp \
                    dnsutils \
                    net-tools \
                    apt-utils \
@@ -29,6 +22,9 @@ RUN apt install -y software-properties-common \
                    imagemagick \
                    openssh-server \
                    inetutils-ping
+RUN apt install -y software-properties-common \
+                   cron \
+                   sudo
 RUN apt update -y && \
     apt install -y software-properties-common \
                    cron \
