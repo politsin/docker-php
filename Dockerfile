@@ -10,11 +10,8 @@ ENV DEBIAN_FRONTEND noninteractive
 # APT install:::
 RUN sed -i -e 's/^APT/# APT/' -e 's/^DPkg/# DPkg/' \
       /etc/apt/apt.conf.d/docker-clean
-RUN ls -la /etc/apt/apt.conf.d
-RUN apt update -y 
-RUN apt install -y --reinstall coreutils
-RUN apt autoremove -y && apt-get clean
-RUN apt install -y software-properties-common \
+RUN apt update -y && \
+    apt install -y software-properties-common \
                    cron \
                    sudo \
                    ssmtp \
