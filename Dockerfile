@@ -30,8 +30,8 @@ RUN apt install -y git \
                    nnn \
                    zip \
                    zsh \
-                   curl \
-                   htop \
+                   curl
+RUN apt install -y htop \
                    nano \
                    ncdu \
                    sass \
