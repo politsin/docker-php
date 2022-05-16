@@ -29,9 +29,9 @@ RUN apt install -y mc \
                    git \
                    nnn \
                    zip \
-                   zsh \
-                   curl
-RUN apt install -y htop \
+RUN apt install -y zsh \
+                   curl \
+                   htop \
                    nano \
                    ncdu \
                    sass \
