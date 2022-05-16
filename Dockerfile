@@ -22,6 +22,10 @@ RUN apt update -y && \
                    imagemagick \
                    openssh-server \
                    inetutils-ping \
+                   sqlite3 \
+                   redis-tools \
+                   mysql-client \
+                   postgresql-client \
                    php8.1 \
                    php8.1-gd  \
                    php8.1-bz2 \
@@ -49,7 +53,8 @@ RUN apt update -y && \
                    php-xdebug \
                    php-sqlite3 \
                    php-imagick \
-                   php-memcached
+                   php-memcached \
+                   php-codesniffer
 # RUN apt install -y mc \
 #                    git \
 #                    nnn \
@@ -74,41 +79,8 @@ RUN apt update -y && \
 #     apt-get clean
 # RUN apt autoremove -y
 
-#PHP:::
-RUN apt update && \
-    LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php && \
-    apt update && \
-    apt install -y php8.1 \
-                   php8.1-gd  \
-                   php8.1-bz2 \
-                   php8.1-fpm \
-                   php8.1-dev \
-                   php8.1-zip \
-                   php8.1-cgi \
-                   php8.1-xml \
-                   php8.1-dom \
-                   php8.1-soap \
-                   php8.1-curl \
-                   php8.1-imap \
-                   php8.1-intl \
-                   php8.1-mysql \
-                   php8.1-pgsql \
-                   php8.1-xmlrpc \
-                   php8.1-bcmath \
-                   php8.1-opcache \
-                   php8.1-mbstring \
-                   php-apcu \
-                   php-json \
-                   php-pear \
-                   php-ssh2 \
-                   php-redis \
-                   php-xdebug \
-                   php-sqlite3 \
-                   php-imagick \
-                   php-memcached \
-                   php-codesniffer
-RUN apt autoremove -y 
-RUN apt clean && \
+RUN apt autoremove -y && \
+    apt clean && \
     apt autoclean && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /usr/share/man/?? && \
