@@ -22,6 +22,21 @@ RUN apt update -y && \
                    imagemagick \
                    openssh-server \
                    inetutils-ping \
+                   mc \
+                   git \
+                   nnn \
+                   zip \
+                   zsh \
+                   curl \
+                   htop \
+                   nano \
+                   ncdu \
+                   sass \
+                   putty \
+                   unzip \
+                   sshpass \
+                   awscli \
+                   python3-pip \
                    sqlite3 \
                    redis-tools \
                    mysql-client \
@@ -54,32 +69,8 @@ RUN apt update -y && \
                    php-sqlite3 \
                    php-imagick \
                    php-memcached \
-                   php-codesniffer
-# RUN apt install -y mc \
-#                    git \
-#                    nnn \
-#                    zip \
-#                    zsh \
-#                    curl \
-#                    htop \
-#                    nano \
-#                    ncdu \
-#                    sass \
-#                    putty \
-#                    unzip \
-#                    sshpass && \
-#     apt-get clean
-# RUN apt install -y sqlite3 \
-#                    redis-tools \
-#                    mysql-client \
-#                    postgresql-client && \
-#     apt-get clean
-# RUN apt install -y awscli \
-#                    python3-pip && \
-#     apt-get clean
-# RUN apt autoremove -y
-
-RUN apt autoremove -y && \
+                   php-codesniffer && \
+    apt autoremove -y && \
     apt clean && \
     apt autoclean && \
     rm -rf /var/lib/apt/lists/* && \
@@ -90,6 +81,7 @@ RUN apt autoremove -y && \
 RUN echo '' > /etc/php/8.1/mods-available/xdebug.ini
 
 #Uploadprogress:::
+RUN pecl channel-update pecl.php.net
 RUN pecl install uploadprogress && \
     echo 'extension=uploadprogress.so' > /etc/php/8.1/mods-available/uploadprogress.ini && \
     ln -s /etc/php/8.1/mods-available/uploadprogress.ini /etc/php/8.1/fpm/conf.d/20-uploadprogress.ini
