@@ -13,7 +13,7 @@ RUN sed -i -e 's/^APT/# APT/' -e 's/^DPkg/# DPkg/' \
 RUN ls -la /etc/apt/apt.conf.d
 RUN apt update -y 
 RUN apt install -y --reinstall coreutils
-RUN apt autoremove -y 
+RUN apt autoremove -y && apt-get clean
 RUN apt install -y software-properties-common \
                    cron \
                    sudo \
