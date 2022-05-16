@@ -26,10 +26,10 @@ RUN apt install -y software-properties-common \
                    openssh-server \
                    inetutils-ping
 RUN apt install -y mc \
-                   git \
-                   nnn \
-                   zip
-RUN apt install -y zsh \
+                   git
+RUN apt install -y nnn \
+                   zip \
+                   zsh \
                    curl \
                    htop \
                    nano \
