@@ -14,19 +14,7 @@ RUN ls -la /etc/apt/apt.conf.d
 RUN apt update -y 
 RUN apt install -y --reinstall coreutils
 RUN apt autoremove -y && apt-get clean
-RUN apt install -y ssmtp \
-                   dnsutils \
-                   net-tools \
-                   apt-utils \
-                   supervisor \
-                   imagemagick \
-                   openssh-server \
-                   inetutils-ping
 RUN apt install -y software-properties-common \
-                   cron \
-                   sudo
-RUN apt update -y && \
-    apt install -y software-properties-common \
                    cron \
                    sudo \
                    ssmtp \
@@ -36,8 +24,8 @@ RUN apt update -y && \
                    supervisor \
                    imagemagick \
                    openssh-server \
-                   inetutils-ping && \
-    apt install -y mc \
+                   inetutils-ping
+RUN apt install -y mc \
                    git \
                    nnn \
                    zip \
@@ -49,14 +37,14 @@ RUN apt update -y && \
                    sass \
                    putty \
                    unzip \
-                   sshpass && \
-    apt install -y sqlite3 \
+                   sshpass
+RUN apt install -y sqlite3 \
                    redis-tools \
                    mysql-client \
-                   postgresql-client && \
-    apt install -y awscli \
-                   python3-pip && \
-    apt autoremove -y
+                   postgresql-client
+RUN apt install -y awscli \
+                   python3-pip
+RUN apt autoremove -y
 
 #PHP:::
 RUN apt update && \
