@@ -28,7 +28,7 @@ RUN apt install -y software-properties-common \
 RUN apt install -y mc \
                    git \
                    nnn \
-                   zip \
+                   zip
 RUN apt install -y zsh \
                    curl \
                    htop \
