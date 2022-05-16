@@ -8,7 +8,6 @@ RUN ln -sf /bin/true /sbin/initctl
 ENV DEBIAN_FRONTEND noninteractive
 
 # APT install:::
-RUN apt remove ufw -y
 RUN sed -i -e 's/^APT/# APT/' -e 's/^DPkg/# DPkg/' \
       /etc/apt/apt.conf.d/docker-clean
 RUN apt update -y && \
@@ -99,6 +98,7 @@ RUN wget https://getcomposer.org/installer -q -O composer-setup.php && \
     php composer-setup.php --install-dir=/usr/local/bin --filename=composer && \
     chmod +x /usr/local/bin/composer
 #Composer-FIX:::
+RUN git clone https://github.com/composer/composer.git ~/composer-build
 RUN git clone https://github.com/composer/composer.git ~/composer-build && \
     composer install  -o -d ~/composer-build && \
     wget https://raw.githubusercontent.com/politsin/snipets/master/patch/composer.patch -q -O ~/composer-build/composer.patch  && \
