@@ -82,9 +82,9 @@ RUN echo '' > /etc/php/8.1/mods-available/xdebug.ini
 
 #Uploadprogress:::
 RUN pecl channel-update pecl.php.net
-RUN pecl install uploadprogress && \
-    echo 'extension=uploadprogress.so' > /etc/php/8.1/mods-available/uploadprogress.ini && \
-    ln -s /etc/php/8.1/mods-available/uploadprogress.ini /etc/php/8.1/fpm/conf.d/20-uploadprogress.ini
+#RUN pecl install uploadprogress && \
+#    echo 'extension=uploadprogress.so' > /etc/php/8.1/mods-available/uploadprogress.ini && \
+#    ln -s /etc/php/8.1/mods-available/uploadprogress.ini /etc/php/8.1/fpm/conf.d/20-uploadprogress.ini
 
 #Redis:::
 RUN pecl install redis
