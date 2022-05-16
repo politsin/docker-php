@@ -40,7 +40,16 @@ RUN apt update -y && \
                    php8.1-xmlrpc \
                    php8.1-bcmath \
                    php8.1-opcache \
-                   php8.1-mbstring
+                   php8.1-mbstring \                   
+                   php-apcu \
+                   php-json \
+                   php-pear \
+                   php-ssh2 \
+                   php-redis \
+                   php-xdebug \
+                   php-sqlite3 \
+                   php-imagick \
+                   php-memcached
 # RUN apt install -y mc \
 #                    git \
 #                    nnn \
