@@ -24,31 +24,30 @@ RUN apt install -y software-properties-common \
                    supervisor \
                    imagemagick \
                    openssh-server \
-                   inetutils-ping && \
-    apt-get clean
-RUN apt install -y mc \
-                   git \
-                   nnn \
-                   zip \
-                   zsh \
-                   curl \
-                   htop \
-                   nano \
-                   ncdu \
-                   sass \
-                   putty \
-                   unzip \
-                   sshpass && \
-    apt-get clean
-RUN apt install -y sqlite3 \
-                   redis-tools \
-                   mysql-client \
-                   postgresql-client && \
-    apt-get clean
-RUN apt install -y awscli \
-                   python3-pip && \
-    apt-get clean
-RUN apt autoremove -y
+                   inetutils-ping
+# RUN apt install -y mc \
+#                    git \
+#                    nnn \
+#                    zip \
+#                    zsh \
+#                    curl \
+#                    htop \
+#                    nano \
+#                    ncdu \
+#                    sass \
+#                    putty \
+#                    unzip \
+#                    sshpass && \
+#     apt-get clean
+# RUN apt install -y sqlite3 \
+#                    redis-tools \
+#                    mysql-client \
+#                    postgresql-client && \
+#     apt-get clean
+# RUN apt install -y awscli \
+#                    python3-pip && \
+#     apt-get clean
+# RUN apt autoremove -y
 
 #PHP:::
 RUN apt update && \
