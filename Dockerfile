@@ -31,7 +31,7 @@ RUN apt install -y mc \
                    nnn \
                    zip \
                    zsh \
-                   curl
+                   curl \
                    htop \
                    nano \
                    ncdu \
