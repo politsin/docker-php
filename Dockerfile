@@ -21,7 +21,7 @@ RUN apt update -y && \
                    supervisor \
                    imagemagick \
                    openssh-server \
-                   inetutils-ping && \
+                   inetutils-ping &&  \
     apt install -y mc \
                    git \
                    nnn \
@@ -90,13 +90,13 @@ RUN LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php && \
 # Disable php-xdebug:::
 RUN echo '' > /etc/php/8.1/mods-available/xdebug.ini
 
+#Redis:::
+RUN pecl install redis
+
 #Uploadprogress:::
 RUN pecl install uploadprogress && \
     echo 'extension=uploadprogress.so' > /etc/php/8.1/mods-available/uploadprogress.ini && \
     ln -s /etc/php/8.1/mods-available/uploadprogress.ini /etc/php/8.1/fpm/conf.d/20-uploadprogress.ini
-
-#Redis:::
-RUN pecl install redis
 
 #DRUSH:::
 RUN wget https://github.com/drush-ops/drush-launcher/releases/latest/download/drush.phar -q -O drush && \
