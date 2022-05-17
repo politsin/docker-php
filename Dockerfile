@@ -178,6 +178,7 @@ COPY config/start.sh /start.sh
 
 #Fix ownership
 RUN chmod 755 /start.sh && \
+    mkdir /run/sshd && \
     mkdir /run/php && \
     chown -R www-data.www-data /run/php && \
     chown www-data.www-data /var/spool/cron/crontabs/www-data && \
