@@ -120,7 +120,7 @@ RUN git clone https://github.com/composer/composer.git ~/composer-build && \
 
 #NodeJS:::
 RUN apt update && \
-    curl -sL https://deb.nodesource.com/setup_16.x | bash - && \
+    curl -sL https://deb.nodesource.com/setup_18.x | bash - && \
     apt install -y nodejs && \
     node -v && \
     npm -v && \
