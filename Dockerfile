@@ -21,8 +21,8 @@ RUN apt update -y && \
                    supervisor \
                    imagemagick \
                    openssh-server \
-                   inetutils-ping \
-                   mc \
+                   inetutils-ping && \
+    apt install -y mc \
                    git \
                    nnn \
                    zip \
@@ -34,14 +34,24 @@ RUN apt update -y && \
                    sass \
                    putty \
                    unzip \
-                   sshpass \
-                   awscli \
-                   python3-pip \
-                   sqlite3 \
+                   sshpass && \
+    apt install -y sqlite3 \
                    redis-tools \
                    mysql-client \
-                   postgresql-client \
-                   php8.1 \
+                   postgresql-client && \
+    apt install -y awscli \
+                   python3-pip && \
+    apt autoremove -y && \
+    apt clean && \
+    apt autoclean && \
+    rm -rf /var/lib/apt/lists/* && \
+    rm -rf /usr/share/man/?? && \
+    rm -rf /usr/share/man/??_*
+
+#PHP:::
+RUN LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php && \
+    apt update && \
+    apt install -y php8.1 \
                    php8.1-gd  \
                    php8.1-bz2 \
                    php8.1-fpm \
@@ -59,7 +69,7 @@ RUN apt update -y && \
                    php8.1-xmlrpc \
                    php8.1-bcmath \
                    php8.1-opcache \
-                   php8.1-mbstring \                   
+                   php8.1-mbstring \
                    php-apcu \
                    php-json \
                    php-pear \
