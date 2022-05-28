@@ -38,6 +38,7 @@ RUN apt update -y && \
                    mysql-client \
                    postgresql-client && \
     apt install -y awscli \
+                   python-is-python3 \
                    python3-pip && \
     apt autoremove -y && \
     apt clean && \
