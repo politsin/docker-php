@@ -69,6 +69,7 @@ RUN LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php && \
                    php8.1-bcmath \
                    php8.1-opcache \
                    php8.1-mbstring \
+                   php-gmp \
                    php-apcu \
                    php-json \
                    php-pear \
