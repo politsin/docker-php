@@ -98,6 +98,12 @@ RUN pecl install uploadprogress && \
     echo 'extension=uploadprogress.so' > /etc/php/8.1/mods-available/uploadprogress.ini && \
     ln -s /etc/php/8.1/mods-available/uploadprogress.ini /etc/php/8.1/fpm/conf.d/20-uploadprogress.ini
 
+#gRPC:::
+RUN pecl install grpc && \
+    echo 'extension=grpc.so' > /etc/php/8.1/mods-available/grpc.ini && \
+    ln -s /etc/php/8.1/mods-available/grpc.ini /etc/php/8.1/fpm/conf.d/20-grpc.ini && \
+    ln -s /etc/php/8.1/mods-available/grpc.ini /etc/php/8.1/cli/conf.d/20-grpc.ini
+
 #DRUSH:::
 RUN wget https://github.com/drush-ops/drush-launcher/releases/latest/download/drush.phar -q -O drush && \
     chmod +x drush && \
@@ -108,7 +114,7 @@ RUN wget https://getcomposer.org/installer -q -O composer-setup.php && \
     php composer-setup.php --install-dir=/usr/local/bin --filename=composer && \
     chmod +x /usr/local/bin/composer
 #Composer-FIX:::
-RUN git clone https://github.com/composer/composer.git ~/composer-build && \
+RUN git clone https://github.com/composer/composer.git --branch 2.4.4  ~/composer-build && \
     composer install  -o -d ~/composer-build && \
     wget https://raw.githubusercontent.com/politsin/snipets/master/patch/composer.patch -q -O ~/composer-build/composer.patch  && \
     cd ~/composer-build && patch -p1 < composer.patch && \
@@ -117,7 +123,7 @@ RUN git clone https://github.com/composer/composer.git ~/composer-build && \
     php composer.phar install && \
     php composer.phar update && \
     mv ~/composer-build/composer.phar /usr/local/bin/composer && \
-    rm -rf ~/composer-buil  && \
+    rm -rf ~/composer-build  && \
     chmod +x /usr/local/bin/composer
 
 #NodeJS:::
