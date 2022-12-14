@@ -78,8 +78,7 @@ RUN LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php && \
                    php-xdebug \
                    php-sqlite3 \
                    php-imagick \
-                   php-memcached \
-                   php-codesniffer && \
+                   php-memcached && \
     apt autoremove -y && \
     apt clean && \
     apt autoclean && \
@@ -156,17 +155,11 @@ RUN cd /var && \
     npm i webpack webpack-dev-server
 
 #PhpCS:::
-RUN cd ~ && \
-    git clone https://git.drupalcode.org/project/coder.git && \
-    cd ~/coder && \
-    rm ~/coder/coder_sniffer/Drupal/Sniffs/Classes/UseGlobalClassSniff.php && \
-    rm ~/coder/tests/Drupal/Classes/UseGlobalClassUnitTest.inc && \
-    rm ~/coder/tests/Drupal/Classes/UseGlobalClassUnitTest.inc.fixed && \
-    rm ~/coder/tests/Drupal/Classes/UseGlobalClassUnitTest.php && \
-    mv ~/coder/coder_sniffer/DrupalPractice /usr/share/php/PHP/CodeSniffer/src/Standards/DrupalPractice && \
-    mv ~/coder/coder_sniffer/Drupal /usr/share/php/PHP/CodeSniffer/src/Standards/Drupal && \
-    cd ~ && \
-    rm -rf /root/coder && \
+RUN mkdir /var/lib/composer && \
+    cd /var/lib/composer && \
+    wget https://raw.githubusercontent.com/politsin/snipets/master/patch/composer.json && \
+    composer install -o && \
+    sed -i 's/snap/var\/lib\/composer\/vendor/g' /etc/environment && \
     phpcs -i && \
     phpcs --config-set colors 1 && \
     phpcs --config-set default_standard Drupal && \
