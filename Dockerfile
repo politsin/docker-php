@@ -58,7 +58,6 @@ RUN LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php && \
                    php8.1-zip \
                    php8.1-cgi \
                    php8.1-xml \
-                   php8.1-dom \
                    php8.1-soap \
                    php8.1-curl \
                    php8.1-imap \
