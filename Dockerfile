@@ -161,10 +161,10 @@ RUN mkdir /var/lib/composer && \
     wget https://raw.githubusercontent.com/politsin/snipets/master/patch/composer.json && \
     composer install -o && \
     sed -i 's/snap/var\/lib\/composer\/vendor/g' /etc/environment && \
-    phpcs -i && \
-    phpcs --config-set colors 1 && \
-    phpcs --config-set default_standard Drupal && \
-    phpcs --config-show
+    /var/lib/composer/vendor/bin/phpcs -i && \
+    /var/lib/composer/vendor/bin/phpcs --config-set colors 1 && \
+    /var/lib/composer/vendor/bin/phpcs --config-set default_standard Drupal && \
+    /var/lib/composer/vendor/bin/phpcs --config-show
 
 #COPY script & config:::
 COPY config/php/www.conf /etc/php/8.1/fpm/pool.d/www.conf
