@@ -90,6 +90,7 @@ RUN LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php && \
 RUN echo '' > /etc/php/8.1/mods-available/xdebug.ini
 
 #Redis:::
+RUN pecl channel-update pecl.php.net
 RUN pecl install -f -o redis
 
 #Uploadprogress:::
