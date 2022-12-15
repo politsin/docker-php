@@ -69,16 +69,16 @@ RUN LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php && \
                    php8.1-bcmath \
                    php8.1-opcache \
                    php8.1-mbstring \
-                   php-gmp \
-                   php-apcu \
+                   php8.1-gmp \
+                   php8.1-apcu \
                    php-json \
                    php-pear \
-                   php-ssh2 \
-                   php-redis \
-                   php-xdebug \
-                   php-sqlite3 \
-                   php-imagick \
-                   php-memcached && \
+                   php8.1-ssh2 \
+                   php8.1-redis \
+                   php8.1-xdebug \
+                   php8.1-sqlite3 \
+                   php8.1-imagick \
+                   php8.1-memcached && \
     apt autoremove -y && \
     apt clean && \
     apt autoclean && \
