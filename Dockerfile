@@ -70,7 +70,6 @@ RUN LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php && \
                    php8.1-mbstring \
                    php8.1-gmp \
                    php8.1-apcu \
-                   php-json \
                    php-pear \
                    php8.1-ssh2 \
                    php8.1-redis \
