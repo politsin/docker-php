@@ -53,6 +53,7 @@ RUN LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php && \
     apt install -y php8.1 \
                    php8.1-gd  \
                    php8.1-bz2 \
+                   php8.1-cli \
                    php8.1-fpm \
                    php8.1-dev \
                    php8.1-zip \
