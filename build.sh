@@ -1,4 +1,9 @@
 #!/bin/bash
 
-# cd /opt/apps/bridge
-docker build . -t synst/php
+# cd /opt/build/docker-php
+docker build . -t synstd/php
+docker tag synstd/php synstd/php:8.1
+docker tag synstd/php synstd/php:8.1.0
+docker push synstd/php
+docker push synstd/php:8.1
+docker push synstd/php:8.1.0
