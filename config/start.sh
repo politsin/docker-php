@@ -1,7 +1,7 @@
 #!/bin/bash
 
-echo "Europe/Moscow" > /etc/timezone
-cp /usr/share/zoneinfo/Europe/Moscow /etc/localtime
+# echo "Europe/Moscow" > /etc/timezone
+# cp /usr/share/zoneinfo/Europe/Moscow /etc/localtime
 
 # www-data user
 usermod -d /var/www/ www-data
