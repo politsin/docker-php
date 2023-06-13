@@ -13,7 +13,6 @@ chown www-data.www-data /var/www/.bashrc
 chown www-data.www-data /var/www/.gitconfig
 # chown -Rf www-data.www-data /var/www/html - too slow
 chown -Rf www-data.www-data /var/www/.drush
-chown -Rf www-data.www-data /var/www/.console
 chown -Rf www-data.www-data /var/www/.composer
 chown -Rf www-data.www-data /var/www/.ssh
 
