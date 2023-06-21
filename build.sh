@@ -6,4 +6,4 @@ docker tag synstd/php synstd/php:8.1
 docker tag synstd/php synstd/php:8.1.1
 docker push synstd/php
 docker push synstd/php:8.1
-docker push synstd/php:8.1.1
+docker push synstd/php:8.1.300
