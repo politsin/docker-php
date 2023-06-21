@@ -63,6 +63,7 @@ RUN LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php && \
                    php8.1-curl \
                    php8.1-imap \
                    php8.1-intl \
+                   php8.1-ldap \
                    php8.1-mysql \
                    php8.1-pgsql \
                    php8.1-phpdbg \
