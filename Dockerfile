@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 MAINTAINER Synapse <mail@synapse-studio.ru>
 
 # Surpress Upstart errors/warning
@@ -115,7 +115,7 @@ RUN wget https://getcomposer.org/installer -q -O composer-setup.php && \
     php composer-setup.php --install-dir=/usr/local/bin --filename=composer && \
     chmod +x /usr/local/bin/composer
 #Composer-FIX:::
-RUN git clone https://github.com/composer/composer.git --branch 2.5.8  ~/composer-build && \
+RUN git clone https://github.com/composer/composer.git --branch 2.6.0  ~/composer-build && \
     composer install  -o -d ~/composer-build && \
     wget https://raw.githubusercontent.com/politsin/snipets/master/patch/composer.patch -q -O ~/composer-build/composer.patch  && \
     cd ~/composer-build && patch -p1 < composer.patch && \
